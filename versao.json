@@ -1,8 +1,8 @@
 {
  "titulo": "Biomassa aérea nas áreas de restauração do Araticum em Goiás",
  "url": "https://rurzeda.github.io/araticum-agb/",
- "tag": "v3.1",
- "commit": "9fc5623a606d9cfcec0efc0cd942f6a4e15bc611",
+ "tag": "v3.2",
+ "commit": "d5faa5fd305584f3b8fa5d254b6e63e00c56e1a8",
  "publicado_em": "2026-11-17",
  "metodologia": 3,
  "modelo_md5": "3279406c75587240a30cb7383496e502",
@@ -10,8 +10,8 @@
  "n_arquivos": 1333,
  "arquivos": {
   ".nojekyll": "d41d8cd98f00b204e9800998ecf8427e",
-  "README.md": "f7801b5003f4b6cdb8fed74c994c6baf",
-  "app.js": "f6bc23fa1ef4ef074b54e2cd405d7efe",
+  "README.md": "5156b5681bb486c78484bd897aff1082",
+  "app.js": "953bcb754113f05d3c9e4b8690ebad99",
   "dados/csv/1033.csv": "ad5e5f6c9657b2e8a0df9cb7584b1a99",
   "dados/csv/1078.csv": "6c4029755a8498be7f1b7b699d4a2999",
   "dados/csv/1093.csv": "962eb9c75291791330cd3d2711b1bd1f",

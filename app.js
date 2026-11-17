@@ -219,12 +219,24 @@
     var refs = [["floresta", c.floresta_estavel, "insideStartTop"], ["savana", c.savana_estavel, "insideStartTop"],
                 ["regeneração", c.regeneracao, "insideStartTop"], ["pastagem", c.pastagem_estavel, "insideStartBottom"]];
     var m = marcas(j);
+    // antes de 2017 o número do ano cairia sobre os rótulos dos controles; a linha continua, e o ano fica no slider
+    if (anoAtual < meta.agb_anual.ano_inicio_modelo) m.data[1].label.show = false;
     m.data = m.data.concat(refs.map(function (r) {
       return [{ coord: [2000, r[1]], lineStyle: { color: cinza, type: "dotted", width: 1, opacity: 0.8 },
                 label: { formatter: r[0] + " " + num(r[1], 1), color: cinza, fontSize: 9, position: r[2], distance: 2 } },
               { coord: [2024, r[1]] }];
     }));
     return m;
+  }
+
+  function eixoAgb(s) {
+    // o topo cobre o maior P90 e a linha de controle mais alta, para as 4 linhas aparecerem em todo polígono
+    var c = meta.controles_nivel_t_ha, m = 0, k;
+    for (k in c) m = Math.max(m, c[k]);
+    for (var i = 0; i < s.anos.length; i++) if (s.p90[i] !== null) m = Math.max(m, s.p90[i]);
+    var passos = [10, 20, 25, 40, 50, 100], p = passos[passos.length - 1];
+    for (i = 0; i < passos.length; i++) if (m / passos[i] <= 7) { p = passos[i]; break; }
+    return { max: Math.ceil(m / p) * p, passo: p };
   }
 
   function desenharAgb(j) {
@@ -237,9 +249,10 @@
       if (s.agb[i] !== null) barras.push([s.anos[i], s.p10[i], s.p90[i]]);
     }
     var tinta = "#e8e6e1", fraca = "#9a968e", linha = "#32363d", cor = "#b7d3f6";
+    var e = eixoAgb(s);
     graficoAgb.setOption({
       animation: false,
-      grid: { left: 40, right: 56, top: 10, bottom: 24 },
+      grid: { left: 40, right: 56, top: 22, bottom: 24 },
       tooltip: { trigger: "item", backgroundColor: "#16181c", borderColor: linha, textStyle: { color: tinta, fontSize: 11 },
         formatter: function (p) {
           var k = s.anos.indexOf(p.value[0]);
@@ -248,7 +261,7 @@
         } },
       xAxis: { type: "value", min: 2000, max: 2024, interval: 4, axisLabel: { color: fraca, fontSize: 10, formatter: String },
         axisLine: { lineStyle: { color: linha } }, splitLine: { show: false } },
-      yAxis: { type: "value", min: 0,
+      yAxis: { type: "value", min: 0, max: e.max, interval: e.passo,
         axisLabel: { color: fraca, fontSize: 10 }, splitLine: { lineStyle: { color: linha, opacity: 0.6 } } },
       series: [
         { id: "barras", type: "custom", silent: true, data: barras, encode: { x: 0, y: [1, 2] }, z: 1,
@@ -264,7 +277,7 @@
           z: 3, lineStyle: { width: 1.5, color: cor }, itemStyle: { color: cor, borderColor: "#16181c", borderWidth: 1.5 },
           markLine: marcasAgb(j),
           markArea: { silent: true, itemStyle: { color: "rgba(154,150,142,0.07)" },
-            label: { show: true, position: "insideTop", color: fraca, fontSize: 10,
+            label: { show: true, position: "top", distance: 4, color: fraca, fontSize: 10,
               formatter: "sem modelo antes de " + meta.agb_anual.ano_inicio_modelo },
             data: [[{ xAxis: 2000 }, { xAxis: meta.agb_anual.ano_inicio_modelo - 0.5 }]] } }
       ]
@@ -279,7 +292,9 @@
         { xAxis: j.projeto.ano_inicio, lineStyle: { color: "#9a968e", type: "dashed", width: 1 },
           label: { formatter: "início", color: "#9a968e", fontSize: 10, position: "insideStartTop" } },
         { xAxis: anoAtual, lineStyle: { color: "#e8e6e1", type: "solid", width: 1 },
-          label: { formatter: String(anoAtual), color: "#e8e6e1", fontSize: 10, position: "insideEndBottom" } }
+          // perto da borda direita, o número do ano fica à esquerda da linha, longe dos rótulos "Landsat" e "S2"
+          label: { formatter: String(anoAtual), color: "#e8e6e1", fontSize: 10,
+                   position: anoAtual >= 2022 ? "insideEndTop" : "insideEndBottom" } }
       ]
     };
   }
@@ -320,6 +335,20 @@
           endLabel: { show: true, formatter: "S2", color: fraca, fontSize: 10 } }
       ]
     }, true);
+    afastarRotulos(n);
+  }
+
+  function afastarRotulos(n) {
+    // quando as duas séries terminam perto, os rótulos "Landsat" e "S2" se separam na vertical
+    function ultimo(v) { for (var i = v.length - 1; i >= 0; i--) if (v[i] !== null) return [n.anos[i], v[i]]; return null; }
+    var a = ultimo(n.landsat), b = ultimo(n.s2), alt = 13;
+    if (!a || !b) return;
+    var ya = grafico.convertToPixel({ seriesId: "landsat" }, a)[1], yb = grafico.convertToPixel({ seriesId: "s2" }, b)[1];
+    var falta = alt - Math.abs(ya - yb);
+    if (falta <= 0) return;
+    var s = ya <= yb ? -1 : 1;          // a série que termina mais alta sobe, a outra desce
+    grafico.setOption({ series: [{ id: "landsat", endLabel: { offset: [0, s * falta / 2] } },
+                                 { id: "s2", endLabel: { offset: [0, -s * falta / 2] } }] });
   }
 
   // ── início ────────────────────────────────────────────────────────────────
