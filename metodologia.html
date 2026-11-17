@@ -11,7 +11,7 @@
 </head>
 <body class="doc">
 <main>
-  <p class="voltar"><a href="index.html">← Voltar ao mapa</a></p>
+  <p class="voltar"><a href="index.html">← Voltar às áreas</a></p>
   <h1>Metodologia e limitações</h1>
   <p class="sub">Biomassa aérea (AGB), NDVI e imagens Landsat e Sentinel-2 de 49 áreas de restauração da plataforma Araticum em Goiás.
     Metodologia versão 3.</p>
@@ -35,7 +35,7 @@
     </tbody>
   </table>
   <p>Os dados de cada polígono são lidos num círculo de 60 m de raio em volta de um ponto interno, o mesmo suporte das parcelas de
-    campo do treino. Em polígonos estreitos, parte do círculo fica fora; o painel avisa quando isso passa de 5 %.</p>
+    campo do treino. Em polígonos estreitos, parte do círculo fica fora; a página da área avisa quando isso passa de 5 %.</p>
 
   <h2 id="modelo">Modelo</h2>
   <p>O modelo é o do artigo GEOINFO <i>Multimodal Analysis and Spatial Generalization for Aboveground Biomass Estimation in Secondary Forests</i>:
@@ -62,11 +62,11 @@
     polígonos de Mineiros, 8 dos 24 da CEDAC e 4 dos 6 de Niquelândia.</p>
 
   <h2 id="nivel">Nível do período</h2>
-  <p>O número do painel é o nível do período: a mediana da AGB prevista nos anos de 2017 a 2024 em que o polígono está no domínio do
-    modelo. Ele só é mostrado com 3 anos ou mais no domínio; com menos, o polígono aparece em cinza.</p>
+  <p>O número do resumo da área é o nível do período: a mediana da AGB prevista nos anos de 2017 a 2024 em que o polígono está no
+    domínio do modelo. Ele só é mostrado com 3 anos ou mais no domínio; com menos, a área aparece sem AGB.</p>
   <p>O intervalo ao lado é a mediana do P10 e do P90 de um Random Forest auxiliar, nos mesmos anos. É um intervalo de referência,
     sem garantia de cobertura: no treino, ele cobriu 78 % da AGB de campo.</p>
-  <p>As cores do mapa dividem o nível em 4 classes: menos de 25, 25 a 40, 40 a 55 e 55 t/ha ou mais. Os cortes ficam perto do nível que
+  <p>As cores da lista de áreas dividem o nível em 4 classes: menos de 25, 25 a 40, 40 a 55 e 55 t/ha ou mais. Os cortes ficam perto do nível que
     o mesmo modelo deu aos pontos de controle do MapBiomas na região:</p>
   <table>
     <thead><tr><th>Controle (30 pontos cada)</th><th class="n">Nível mediano (t/ha)</th></tr></thead>
@@ -78,11 +78,11 @@
     </tbody>
   </table>
   <p>O modelo não prevê valores perto de zero: o menor valor previsto no treino é de 6,6 t/ha. Um nível abaixo de 30 t/ha fica na faixa
-    em que o modelo não separa pastagem de vegetação jovem, e o painel avisa.</p>
+    em que o modelo não separa pastagem de vegetação jovem, e a página avisa.</p>
 
   <h2 id="incremento">AGB de cada ano</h2>
-  <p>Nos polígonos com nível, o painel mostra também a AGB prevista em cada ano de 2017 a 2024, só nos anos dentro do domínio do
-    modelo, com o P10 e o P90 do ano. Antes de 2017 o modelo não roda, porque não há Sentinel-1 nem GEDI. A plataforma não mostra a
+  <p>Nos polígonos com nível, o gráfico da área mostra também a AGB prevista em cada ano de 2017 a 2024, só nos anos dentro do
+    domínio do modelo, com o P10 e o P90 do ano. Ela fica embaixo do NDVI, no mesmo eixo de anos, de 2000 a 2024. Antes de 2017 o modelo não roda, porque não há Sentinel-1 nem GEDI. A plataforma não mostra a
     tendência nem o antes e depois do início da restauração.</p>
   <p>A variação de um ano para outro nesse gráfico não é crescimento. Nos 146 pares de anos seguidos dentro do domínio, a AGB prevista
     muda 1,6 t/ha na mediana, 10 % das mudanças passam de 18,5 t/ha e a maior chega a 31 t/ha. Os saltos grandes vêm do XGB, que
@@ -116,8 +116,8 @@
     início do projeto.</p>
 
   <h2 id="imagens">Imagens</h2>
-  <p>O slider vai de 2000 a 2024, os mesmos anos do gráfico do NDVI. Todas as imagens são em cor verdadeira, mediana das cenas da
-    janela de 1/07 a 28/09.</p>
+  <p>O slider vai de 2000 a 2024 e fica alinhado ao eixo de anos do gráfico, que tem o NDVI em cima e a AGB embaixo. Todas as
+    imagens são em cor verdadeira, mediana das cenas da janela de 1/07 a 28/09.</p>
   <ul>
     <li><b>De 2017 a 2024, Sentinel-2</b> (L2A harmonizado, B4, B3 e B2): cenas com menos de 20 % de nuvem e máscara de nuvem do SCL.
       Pixel nativo de 10 m, sem reamostragem; o recorte tem 640, 1280 ou 2560 m de lado, o menor que cabe 1,5 vez o polígono.</li>
@@ -126,12 +126,15 @@
       de 3 por 3, sem interpolação. Num polígono de 1,5 ha, a mediana do recorte, isso dá cerca de 4 por 4 pixels; a passagem de 2016
       para 2017 muda a nitidez porque muda o sensor.</li>
     <li>O ETM+ tem falha de varredura desde 2003. A mediana de várias cenas cobre quase todas as faixas; em 2 das 833 imagens Landsat
-      sobraram faixas em cinza, fora do polígono e do círculo, e o painel avisa.</li>
+      sobraram faixas em cinza, fora do polígono e do círculo, e a página avisa.</li>
     <li>O mesmo estiramento em todos os anos e polígonos (reflectância de 0 a 0,3, gama de 1,3), para que a cor de um ano possa ser
       comparada com a de outro. Entre o Landsat e o Sentinel-2 a cor não é calibrada.</li>
-    <li>Contorno do polígono em amarelo e círculo do modelo em ciano. Pixel sem observação livre de nuvem fica em cinza.</li>
+    <li>Contorno do polígono em amarelo e círculo do modelo em ciano. Para a área aparecer, o contorno tem 4 pixels e o entorno do
+      polígono fica com metade do brilho. Pixel sem observação livre de nuvem fica em cinza, sem escurecer.</li>
     <li>A imagem é marcada como "sem dado" quando mais da metade da área não tem observação, e como "nuvem" quando mais de 5 % tem azul
       muito alto. Nas 392 imagens Sentinel-2 e nas 833 Landsat não houve marca.</li>
+    <li>A página da área mostra também uma foto recente da Esri em alta resolução, sem ano definido, só para ver a área de perto. Ela
+      não acompanha o slider.</li>
   </ul>
 
   <h2 id="limitacoes">Limitações</h2>
@@ -139,8 +142,8 @@
     <li>O erro da AGB de cada polígono é alto (RMSE de 40,9 t/ha no treino, R² de 0,118 com Goiás fora do treino). O nível serve para
       comparar polígonos de forma grosseira, pelas classes.</li>
     <li>O círculo de 60 m pode não representar o polígono inteiro, em especial nos polígonos grandes de Mineiros.</li>
-    <li>Em alguns anos falta GEDI no ponto, e o modelo usa a mediana do Cerrado. O painel mostra quanto o nível mudaria com o GEDI do
-      próprio polígono.</li>
+    <li>Em alguns anos falta GEDI no ponto, e o modelo usa a mediana do Cerrado. As ressalvas da área mostram quanto o nível mudaria com o GEDI
+      do próprio polígono.</li>
     <li>Em 2022 o mosaico PALSAR tem falha no nordeste de Goiás, e esses anos ficam sem predição.</li>
     <li>A máscara de nuvem não pega fumaça nem névoa fina da estação do fogo.</li>
     <li>A plataforma descreve o que o satélite vê. Ela não verifica o projeto em campo.</li>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biomassa no Araticum, Goiás</title>
-<meta name="description" content="Biomassa aérea estimada por satélite, NDVI e imagens Landsat e Sentinel-2 de 49 áreas de restauração da plataforma Araticum em Goiás.">
+<meta name="description" content="Imagens de satélite de cada ano, NDVI desde 2000 e biomassa aérea estimada por satélite em 49 áreas de restauração da plataforma Araticum em Goiás.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -17,94 +17,85 @@
 </head>
 <body>
 
-<div id="mapa" role="application" aria-label="Mapa dos polígonos"></div>
+<header class="topo">
+  <div class="topo-in">
+    <a class="marca" href="#">Biomassa nas áreas de restauração do Araticum</a>
+    <a class="topo-link" href="metodologia.html">Metodologia e limitações</a>
+  </div>
+</header>
 
-<section class="painel" id="painel" aria-label="Legenda e seleção">
-  <div class="cab">
-    <button class="botao-cab" id="dobra" aria-expanded="true" aria-controls="corpo-painel" title="Recolher painel">−</button>
-    <h1>Biomassa nas áreas de restauração do Araticum</h1>
-    <p>49 polígonos de restauração em Goiás (plataforma Araticum, LAPIG/UFG). Biomassa aérea (AGB) estimada por
-       satélite, mostrada só onde o modelo se aplica.</p>
+<!-- lista das áreas (D24) -->
+<main id="lista" aria-labelledby="t-lista">
+  <section class="intro">
+    <h1 id="t-lista">49 áreas de restauração em Goiás</h1>
+    <p>Escolha uma área para ver a imagem de satélite de cada ano desde 2000, o NDVI, que mede o verde da vegetação,
+      e a biomassa aérea (AGB) que o modelo prevê de 2017 a 2024. O modelo só se aplica em parte das áreas; nas outras,
+      a imagem e o NDVI mostram a mudança da vegetação.</p>
+  </section>
+  <div class="filtros" role="search" aria-label="Filtros da lista">
+    <label>Município <select id="f-municipio"><option value="">Todos</option></select></label>
+    <label>Projeto <select id="f-fonte"><option value="">Todos</option></select></label>
+    <label class="caixa"><input type="checkbox" id="f-agb"> Só áreas com AGB</label>
+    <span class="conta" id="conta" aria-live="polite"></span>
   </div>
-  <div class="corpo" id="corpo-painel">
-    <div class="grupo">
-      <span class="rotulo">Nível de AGB do período (t/ha)</span>
-      <div class="classes" id="legenda"></div>
-    </div>
-    <div class="grupo">
-      <label class="rotulo" for="seletor">Polígono</label>
-      <select id="seletor"><option value="">Escolha um polígono</option></select>
-    </div>
-    <p class="nota">Clique num polígono para ver a imagem e o NDVI de cada ano desde 2000, a AGB prevista e as ressalvas
-      do modelo. O nível é a mediana da AGB prevista nos anos em que o polígono está no domínio do modelo. A AGB de cada
-      ano vem com o aviso de que a variação entre anos não é crescimento: o modelo não detecta o incremento nestes
-      polígonos.
-      <a href="metodologia.html">Metodologia e limitações</a>.</p>
-  </div>
-</section>
+  <div id="grupos"></div>
+</main>
 
-<aside class="detalhe" id="detalhe" aria-labelledby="d-titulo" hidden>
-  <div class="cab">
-    <button class="botao-cab" id="fechar" title="Fechar" aria-label="Fechar o painel do polígono">×</button>
-    <h2 id="d-titulo">Polígono</h2>
-    <p id="d-projeto"></p>
-  </div>
-  <div class="corpo">
-    <div class="grupo">
-      <div class="linha">
-        <span class="rotulo" id="r-imagem">Imagem de satélite</span>
-        <span class="valor" id="v-ano"></span>
-      </div>
-      <figure>
+<!-- uma área (D25 a D27) -->
+<main id="area" aria-labelledby="a-titulo" hidden>
+  <nav class="trilha" aria-label="Navegação entre as áreas">
+    <a href="#" id="voltar">← Todas as áreas</a>
+    <span class="vizinhos"><a id="anterior" href="#">‹ Anterior</a><a id="proxima" href="#">Próxima ›</a></span>
+  </nav>
+  <header class="area-cab">
+    <h1 id="a-titulo">Área</h1>
+    <p id="a-sub"></p>
+  </header>
+
+  <div class="area-corpo">
+    <div class="col-imagem">
+      <figure class="vista" id="vista-ano">
+        <div class="vista-cab"><span class="rotulo" id="r-imagem">Imagem do ano</span><span class="ano-grande" id="v-ano"></span></div>
         <div class="quadro"><img id="imagem" alt="" width="512" height="512"></div>
         <figcaption id="legenda-imagem"></figcaption>
+        <p class="credito">De 2000 a 2016: Landsat, cortesia do U.S. Geological Survey. De 2017 a 2024: contém dados modificados do Copernicus Sentinel-2.</p>
       </figure>
-      <input type="range" id="ano" min="2000" max="2024" step="1" value="2024" aria-label="Ano da imagem">
-      <div class="marcas-ano" aria-hidden="true" id="marcas-ano"></div>
-      <p class="credito">De 2000 a 2016: Landsat, cortesia do U.S. Geological Survey. De 2017 a 2024: contém dados modificados do Copernicus Sentinel-2.</p>
     </div>
 
-    <div class="grupo" id="g-agb">
-      <span class="rotulo">Biomassa aérea (AGB)</span>
-      <dl class="nums" id="agb-nums">
-        <div class="num"><dt>Nível do período</dt><dd id="v-nivel"></dd></div>
-        <div class="num"><dt>P10 a P90</dt><dd id="v-intervalo"></dd></div>
-      </dl>
-      <div class="situacao" id="v-situacao" hidden></div>
-      <p class="achado" id="v-agb-nota"></p>
-      <div class="grupo" id="g-agb-anual" hidden>
-        <span class="rotulo">AGB prevista em cada ano (t/ha)</span>
-        <div id="agb-grafico" role="img" aria-label="Gráfico da AGB prevista em cada ano, com o P10 e o P90"></div>
-        <p class="achado" id="agb-aviso"></p>
-        <details>
-          <summary>Tabela da AGB por ano</summary>
-          <table id="tabela-agb"></table>
-        </details>
-      </div>
-    </div>
+    <div class="col-dados">
 
-    <div class="grupo">
-      <span class="rotulo">NDVI no fim da estação seca (1/07 a 28/09)</span>
-      <div id="ndvi" role="img" aria-label="Gráfico do NDVI por ano"></div>
-      <details>
-        <summary>Tabela do NDVI</summary>
-        <table id="tabela-ndvi"></table>
-      </details>
-    </div>
+      <section class="serie" aria-labelledby="t-serie">
+        <div class="serie-cab">
+          <h2 id="t-serie">Ano a ano, de 2000 a 2024</h2>
+          <div class="controles">
+            <button type="button" id="b-anterior" aria-label="Ano anterior">◀</button>
+            <button type="button" id="b-tocar" class="tocar" aria-label="Reproduzir os anos">▶ Reproduzir</button>
+            <button type="button" id="b-proximo" aria-label="Próximo ano">▶</button>
+          </div>
+        </div>
+        <div id="grafico" role="img" aria-label="NDVI e AGB prevista em cada ano, de 2000 a 2024; os valores estão na tabela por ano"></div>
+        <div class="trilho"><input type="range" id="ano" min="2000" max="2024" step="1" value="2024" aria-label="Ano da imagem e dos gráficos"></div>
+        <p class="achado" id="aviso"></p>
+      </section>
 
-    <div class="grupo">
-      <span class="rotulo">Projeto</span>
-      <dl class="ficha" id="ficha"></dl>
-    </div>
+      <section class="resumo" id="resumo" aria-label="Resumo da área"></section>
 
-    <div class="grupo">
-      <span class="rotulo">Ressalvas deste polígono</span>
-      <ul class="ressalvas" id="ressalvas"></ul>
-    </div>
+      <figure class="vista foto">
+        <div class="vista-cab"><span class="rotulo">Foto atual em alta resolução</span></div>
+        <div class="quadro-foto"><div id="foto"></div><div id="localizacao" aria-hidden="true"></div></div>
+        <figcaption>Mosaico recente da Esri, sem ano definido, para ver a área de perto. Não acompanha o ano do slider.
+          O quadro pequeno mostra onde a área fica em Goiás.</figcaption>
+      </figure>
 
-    <a class="baixar" id="csv" href="#" download>Baixar o CSV do polígono</a>
+      <section class="mais" aria-label="Detalhes">
+        <details><summary>Tabela por ano</summary><div class="rolar"><table id="tabela"></table></div></details>
+        <details><summary>Ressalvas desta área</summary><ul class="ressalvas" id="ressalvas"></ul></details>
+        <details><summary>Projeto</summary><dl class="ficha" id="ficha"></dl></details>
+        <a class="baixar" id="csv" href="#" download>Baixar o CSV da área</a>
+      </section>
+    </div>
   </div>
-</aside>
+</main>
 
 <script src="app.js"></script>
 </body>
