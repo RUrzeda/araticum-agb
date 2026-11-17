@@ -1,0 +1,26 @@
+gid,ano,ano_inicio,ndvi_landsat,sensor_landsat,ndvi_s2,imagem,marca_imagem,n_cenas_imagem,no_dominio_do_modelo,situacao_agb,agb_nivel_periodo_t_ha,agb_p10_t_ha,agb_p90_t_ha
+1251,2000,2010,0.1625,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2001,2010,0.2746,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2002,2010,0.1901,ETM,,,,,,nível do período,53.97,18.38,117.09
+1251,2003,2010,0.2851,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2004,2010,0.2237,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2005,2010,0.2397,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2006,2010,0.287,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2007,2010,0.2247,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2008,2010,0.3254,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2009,2010,0.2758,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2010,2010,0.2258,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2011,2010,0.2085,TM,,,,,,nível do período,53.97,18.38,117.09
+1251,2012,2010,0.2768,ETM,,,,,,nível do período,53.97,18.38,117.09
+1251,2013,2010,0.2626,ETM,,,,,,nível do período,53.97,18.38,117.09
+1251,2014,2010,0.5575,ETM,,,,,,nível do período,53.97,18.38,117.09
+1251,2015,2010,0.2651,ETM,,,,,,nível do período,53.97,18.38,117.09
+1251,2016,2010,0.4324,ETM,,,,,,nível do período,53.97,18.38,117.09
+1251,2017,2010,0.4065,ETM,0.431,dados/imagens/1251/2017.webp,ok,7,sim,nível do período,53.97,18.38,117.09
+1251,2018,2010,0.4623,ETM,0.4464,dados/imagens/1251/2018.webp,ok,3,sim,nível do período,53.97,18.38,117.09
+1251,2019,2010,0.4709,ETM,0.4624,dados/imagens/1251/2019.webp,ok,11,sim,nível do período,53.97,18.38,117.09
+1251,2020,2010,0.4488,ETM,0.4615,dados/imagens/1251/2020.webp,ok,17,sim,nível do período,53.97,18.38,117.09
+1251,2021,2010,0.4658,ETM,0.527,dados/imagens/1251/2021.webp,ok,17,sim,nível do período,53.97,18.38,117.09
+1251,2022,2010,0.6022,ETM,0.5896,dados/imagens/1251/2022.webp,ok,11,não,nível do período,53.97,18.38,117.09
+1251,2023,2010,0.6732,ETM,0.6294,dados/imagens/1251/2023.webp,ok,10,sim,nível do período,53.97,18.38,117.09
+1251,2024,2010,,,0.5552,dados/imagens/1251/2024.webp,ok,12,não,nível do período,53.97,18.38,117.09

@@ -1,0 +1,228 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1149,
+ "projeto": {
+  "nome": "Food Products from the Forests in the Cerrado, Brazil",
+  "fonte": "Cooperagrofamiliar",
+  "instituicao": "Cooperativa Agropecuaria dos Produtores Familiares de Niquelandia",
+  "metodo": "Sistemas Agroflorestais (SAFs)",
+  "municipio": "Niquelândia",
+  "estado": "Goiás",
+  "data_inicio": "2021",
+  "ano_inicio": 2021,
+  "area_ha": 1.03
+ },
+ "suporte": {
+  "ponto": [
+   -48.470335,
+   -14.25722
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 0.767
+ },
+ "agb": {
+  "situacao": "nível do período",
+  "mostra_nivel": true,
+  "n_anos_preditos": 8,
+  "n_anos_dominio": 5,
+  "anos_dominio": [
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "anos_sem_predicao": [],
+  "nivel_t_ha": 43.87,
+  "p10_t_ha": 10.63,
+  "p90_t_ha": 69.8,
+  "classe": 2,
+  "n_anos_gedi_imputado": 3,
+  "nivel_gedi_proprio_t_ha": 43.87
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.7506,
+   0.6593,
+   0.6763,
+   0.5547,
+   0.6198,
+   0.6308,
+   0.5865,
+   0.6281,
+   0.6023,
+   0.675,
+   0.5364,
+   0.6318,
+   0.6182,
+   0.6588,
+   0.6985,
+   0.7065,
+   0.6295,
+   0.6864,
+   0.6821,
+   0.653,
+   0.4556,
+   0.5005,
+   0.5861,
+   0.6632,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.6782,
+   0.7932,
+   0.6837,
+   0.4392,
+   0.4957,
+   0.6073,
+   0.6943,
+   0.6821
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1149/2017.webp",
+   "marca": "ok",
+   "n_cenas": 10,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1149/2018.webp",
+   "marca": "ok",
+   "n_cenas": 2,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1149/2019.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1149/2020.webp",
+   "marca": "ok",
+   "n_cenas": 17,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1149/2021.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1149/2022.webp",
+   "marca": "ok",
+   "n_cenas": 14,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1149/2023.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1149/2024.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "5 dos 8 anos com predição estão no domínio do modelo (2020, 2021, 2022, 2023 e 2024). O nível é a mediana da AGB prevista nesses anos.",
+  "23 % do círculo de 60 m usado pelo modelo fica fora do polígono.",
+  "Em 3 dos 5 anos do nível, faltou GEDI no ponto e o modelo usou a mediana do Cerrado. Com o GEDI do próprio polígono, o nível seria de 43,9 t/ha."
+ ],
+ "csv": "dados/csv/1149.csv"
+}

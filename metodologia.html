@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metodologia e limitações</title>
+<meta name="description" content="Como a biomassa aérea, o NDVI e as imagens da plataforma Araticum em Goiás foram calculados, e o que eles não mostram.">
+<link rel="icon" type="image/svg+xml" href="icone.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body class="doc">
+<main>
+  <p class="voltar"><a href="index.html">← Voltar ao mapa</a></p>
+  <h1>Metodologia e limitações</h1>
+  <p class="sub">Biomassa aérea (AGB), NDVI e imagens Sentinel-2 de 49 áreas de restauração da plataforma Araticum em Goiás.
+    Metodologia versão 3.</p>
+
+  <nav class="sumario" aria-label="Sumário">
+    <a href="#poligonos">Polígonos</a> <a href="#modelo">Modelo</a> <a href="#dominio">Domínio do modelo</a>
+    <a href="#nivel">Nível do período</a> <a href="#incremento">Por que não há incremento</a> <a href="#ndvi">NDVI</a>
+    <a href="#imagens">Imagens</a> <a href="#limitacoes">Limitações</a> <a href="#versao">Versão e arquivos</a>
+  </nav>
+
+  <h2 id="poligonos">Polígonos</h2>
+  <p>A camada <code>araticum_restauracao_2024</code> da plataforma Araticum (LAPIG/UFG), copiada em julho de 2026, tem 8.019 polígonos.
+    Em Goiás são 247. Ficam os que têm 1 ha ou mais e data de início preenchida, sem um cadastro duplicado: 49 polígonos.</p>
+  <table>
+    <thead><tr><th>Início</th><th class="n">Polígonos</th><th>Fonte</th><th>Municípios</th></tr></thead>
+    <tbody>
+      <tr><td>2010</td><td class="n">19</td><td>BRCARBON</td><td>Mineiros</td></tr>
+      <tr><td>2019</td><td class="n">18</td><td>CEDAC</td><td>Sítio d'Abadia, Mambaí, Formosa</td></tr>
+      <tr><td>2020</td><td class="n">6</td><td>CEDAC</td><td>Guarani de Goiás, São Domingos, Flores de Goiás</td></tr>
+      <tr><td>2021</td><td class="n">6</td><td>Cooperagrofamiliar</td><td>Niquelândia</td></tr>
+    </tbody>
+  </table>
+  <p>Os dados de cada polígono são lidos num círculo de 60 m de raio em volta de um ponto interno, o mesmo suporte das parcelas de
+    campo do treino. Em polígonos estreitos, parte do círculo fica fora; o painel avisa quando isso passa de 5 %.</p>
+
+  <h2 id="modelo">Modelo</h2>
+  <p>O modelo é o do artigo GEOINFO <i>Multimodal Analysis and Spatial Generalization for Aboveground Biomass Estimation in Secondary Forests</i>:
+    um Voting de Random Forest e XGBoost, reajustado em 460 UAs de restauração do Inventário Florestal Nacional (268 no Cerrado, 192 na
+    Amazônia), com as variáveis reextraídas pelo protocolo do artigo.</p>
+  <p>São 16 variáveis: altura do dossel do ETH, altura da vegetação baixa (Global Pasture Watch), GEDI (AGBD e RH75), B11 do Sentinel-2, VV, VH e RVI do Sentinel-1, HH e HV do
+    PALSAR, elevação, aspecto, precipitação anual, temperatura máxima, evapotranspiração potencial e umidade do solo. O clima de cada
+    polígono é fixo, a média de 2014 a 2016, em todos os anos; assim a variação entre anos vem das outras variáveis.</p>
+  <table>
+    <thead><tr><th>Validação</th><th class="n">R²</th><th class="n">RMSE (t/ha)</th></tr></thead>
+    <tbody>
+      <tr><td>Validação cruzada aninhada (média)</td><td class="n">0,477</td><td class="n"></td></tr>
+      <tr><td>Fora da amostra (OOF)</td><td class="n">0,520</td><td class="n">40,9</td></tr>
+      <tr><td>Deixando Goiás de fora do treino</td><td class="n">0,118</td><td class="n">33,8</td></tr>
+    </tbody>
+  </table>
+  <p>A última linha é a que mais se aproxima do uso aqui: o modelo transfere mal para Goiás, e a AGB absoluta de cada polígono tem erro alto.</p>
+
+  <h2 id="dominio">Domínio do modelo</h2>
+  <p>Para cada polígono e ano, o índice de dissimilaridade (DI) de Meyer e Pebesma (2021) mede a distância das variáveis de satélite até
+    as UAs de treino. O ano fica no domínio do modelo (área de aplicabilidade, AOA) quando o DI é de 0,305 ou menos, o limiar calculado
+    na validação cruzada do treino. Fora do domínio, a AGB prevista é extrapolação e não aparece na página.</p>
+  <p>Dos 49 polígonos, 25 têm 3 anos ou mais no domínio, 1 tem só 2 anos e 23 ficam fora em todos os anos. Ficam fora 11 dos 19
+    polígonos de Mineiros, 8 dos 24 da CEDAC e 4 dos 6 de Niquelândia.</p>
+
+  <h2 id="nivel">Nível do período</h2>
+  <p>O número do painel é o nível do período: a mediana da AGB prevista nos anos de 2017 a 2024 em que o polígono está no domínio do
+    modelo. Ele só é mostrado com 3 anos ou mais no domínio; com menos, o polígono aparece em cinza.</p>
+  <p>O intervalo ao lado é a mediana do P10 e do P90 de um Random Forest auxiliar, nos mesmos anos. É um intervalo de referência,
+    sem garantia de cobertura: no treino, ele cobriu 78 % da AGB de campo.</p>
+  <p>As cores do mapa dividem o nível em 4 classes: menos de 25, 25 a 40, 40 a 55 e 55 t/ha ou mais. Os cortes ficam perto do nível que
+    o mesmo modelo deu aos pontos de controle do MapBiomas na região:</p>
+  <table>
+    <thead><tr><th>Controle (30 pontos cada)</th><th class="n">Nível mediano (t/ha)</th></tr></thead>
+    <tbody>
+      <tr><td>Pastagem estável</td><td class="n">25,5</td></tr>
+      <tr><td>Vegetação secundária de 1 a 10 anos</td><td class="n">30,3</td></tr>
+      <tr><td>Savana estável</td><td class="n">43,3</td></tr>
+      <tr><td>Floresta estável</td><td class="n">63,6</td></tr>
+    </tbody>
+  </table>
+  <p>O modelo não prevê valores perto de zero: o menor valor previsto no treino é de 6,6 t/ha. Um nível abaixo de 30 t/ha fica na faixa
+    em que o modelo não separa pastagem de vegetação jovem, e o painel avisa.</p>
+
+  <h2 id="incremento">Por que não há incremento</h2>
+  <p>A plataforma não mostra a AGB de cada ano, a tendência nem o antes e depois do início da restauração. O teste com os pontos de
+    controle (Etapa 8) mostrou que a série anual do modelo não acompanha a mudança da vegetação nestes locais:</p>
+  <ul>
+    <li>Nas áreas estáveis, a série não cria tendência falsa dentro do domínio do modelo.</li>
+    <li>Na vegetação secundária que tinha de 1 a 10 anos em 2017, a inclinação mediana foi de +0,14 t/ha/ano, sem diferença de zero
+      (p = 0,091). A AGB prevista também não acompanha a idade da vegetação.</li>
+    <li>Depois de um fogo na vegetação nativa, a AGB prevista não caiu (diferença mediana de +0,58 t/ha). Uma queda de 19 % da biomassa,
+      como a medida por Azevedo et al. (2021) no cerrado, daria cerca de 8 t/ha.</li>
+    <li>A meia largura do intervalo de 95 % da inclinação ficou entre 0,8 e 1,8 t/ha/ano. O incremento publicado para a regeneração do
+      cerrado sensu stricto, de 0,9 a 1,1 Mg/ha/ano (Azevedo et al., 2021), fica dentro dessa faixa.</li>
+  </ul>
+  <p>Por isso uma tendência sem significância nestes polígonos não quer dizer que a vegetação não cresceu: o método não teria detectado
+    um crescimento dessa ordem. A diferença entre dois anos da série também não mede crescimento.</p>
+
+  <h2 id="ndvi">NDVI</h2>
+  <p>O NDVI é medido no mesmo círculo de 60 m, no fim da estação seca, de 1/07 a 28/09: 15 de agosto com 45 dias para cada lado, a
+    mesma janela das variáveis do Sentinel-1 e do Sentinel-2 no modelo.</p>
+  <ul>
+    <li><b>Landsat, de 2000 a 2023.</b> Coleção 2, nível 2, Tier 1, com as máscaras de nuvem, sombra e saturação. Só o TM (Landsat 5) e o
+      ETM+ (Landsat 7), nessa ordem. O ano entra quando metade ou mais do círculo tem observação válida.</li>
+    <li><b>Sem OLI.</b> O NDVI do Landsat 8 ficou 0,053 acima do ETM+ nos mesmos polígonos e anos, fora da margem de 0,02 fixada antes
+      do teste. Entre o ETM+ e o TM a diferença foi de 0,006. Como o ETM+ não tem cena em 2024, a série Landsat termina em 2023.</li>
+    <li><b>Sentinel-2, de 2017 a 2024.</b> A mesma composição que entra no modelo. Fica cerca de 0,020 abaixo do ETM+ nos mesmos
+      anos, por isso as duas linhas do gráfico não devem ser emendadas.</li>
+  </ul>
+  <p>O NDVI não é variável do modelo, mas o B11 da mesma composição é, e os dois têm correlação de −0,87 na série. Por isso o NDVI do
+    Sentinel-2 e a AGB prevista não são evidências independentes. A série Landsat, de antes de 2017, é a que mostra a área antes do
+    início do projeto.</p>
+
+  <h2 id="imagens">Imagens</h2>
+  <p>As imagens do slider são do Sentinel-2 (L2A harmonizado), em cor verdadeira (B4, B3 e B2), mediana das cenas com menos de 20 % de
+    nuvem na mesma janela de 1/07 a 28/09, com a máscara de nuvem do SCL.</p>
+  <ul>
+    <li>Pixel nativo de 10 m, sem reamostragem; o recorte tem 640, 1280 ou 2560 m de lado, o menor que cabe 1,5 vez o polígono.</li>
+    <li>O mesmo estiramento em todos os anos e polígonos (0 a 3000, gama de 1,3), para que a cor de um ano possa ser comparada com a de
+      outro.</li>
+    <li>Contorno do polígono em amarelo e círculo do modelo em ciano. Pixel sem observação livre de nuvem fica em cinza.</li>
+    <li>A imagem é marcada como "sem dado" quando mais da metade da área não tem observação, e como "nuvem" quando mais de 5 % tem azul
+      muito alto. Nas 392 imagens não houve marca.</li>
+  </ul>
+
+  <h2 id="limitacoes">Limitações</h2>
+  <ul>
+    <li>O erro da AGB de cada polígono é alto (RMSE de 40,9 t/ha no treino, R² de 0,118 com Goiás fora do treino). O nível serve para
+      comparar polígonos de forma grosseira, pelas classes.</li>
+    <li>O círculo de 60 m pode não representar o polígono inteiro, em especial nos polígonos grandes de Mineiros.</li>
+    <li>Em alguns anos falta GEDI no ponto, e o modelo usa a mediana do Cerrado. O painel mostra quanto o nível mudaria com o GEDI do
+      próprio polígono.</li>
+    <li>Em 2022 o mosaico PALSAR tem falha no nordeste de Goiás, e esses anos ficam sem predição.</li>
+    <li>A máscara de nuvem não pega fumaça nem névoa fina da estação do fogo.</li>
+    <li>A plataforma descreve o que o satélite vê. Ela não verifica o projeto em campo.</li>
+  </ul>
+
+  <h2 id="versao">Versão e arquivos</h2>
+  <p>Metodologia versão 3; arquivo do modelo com md5 <code>3279406c75587240a30cb7383496e502</code>. Cada polígono tem um CSV para
+    download com um ano por linha, de 2000 a 2024: NDVI, imagem, situação do ano no domínio do modelo e o nível do período, repetido em
+    todas as linhas.</p>
+  <p id="publicacao" hidden></p>
+  <h3>Fontes</h3>
+  <ul class="fontes">
+    <li>Plataforma Araticum, LAPIG/UFG: camada <code>araticum_restauracao_2024</code>.</li>
+    <li>Inventário Florestal Nacional (Serviço Florestal Brasileiro): AGB de campo do treino.</li>
+    <li>Google Earth Engine: Sentinel-1, Sentinel-2, Landsat Coleção 2, ALOS PALSAR, GEDI, SRTM, TerraClimate, altura do dossel do ETH,
+      altura da vegetação baixa da Global Pasture Watch, MapBiomas Coleção 10.1 e MapBiomas Fogo Coleção 4.1.</li>
+    <li>Meyer, H.; Pebesma, E. (2021). Predicting into unknown space? Estimating the area of applicability of spatial prediction models.
+      <i>Methods in Ecology and Evolution</i>, 12, 1620-1633.</li>
+    <li>Azevedo et al. (2021). <i>European Journal of Forest Research</i>, doi 10.1007/s10342-021-01421-9.</li>
+  </ul>
+  <h3>Créditos e licença</h3>
+  <ul class="fontes">
+    <li>Contém dados modificados do Copernicus Sentinel (Sentinel-1 e Sentinel-2).</li>
+    <li>Landsat: cortesia do U.S. Geological Survey.</li>
+    <li>ALOS PALSAR: ©JAXA.</li>
+    <li>GEDI: NASA.</li>
+    <li>Projeto MapBiomas, Coleção 10.1 e MapBiomas Fogo Coleção 4.1.</li>
+    <li>Polígonos: plataforma Araticum, LAPIG/UFG.</li>
+    <li>Mapas de fundo: Esri e colaboradores.</li>
+  </ul>
+  <p>A licença de uso dos dados e do código desta plataforma ainda não foi definida. As geometrias dos polígonos seguem as
+    condições de uso da plataforma Araticum.</p>
+</main>
+<script>
+  // versao.json só existe na cópia publicada (scripts/12_publicar.py); na cópia local o parágrafo fica oculto.
+  fetch("versao.json").then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
+    if (!v) return;
+    var d = v.publicado_em.split("-"), p = document.getElementById("publicacao");
+    p.textContent = "Esta cópia foi publicada em " + d[2] + "/" + d[1] + "/" + d[0] + " a partir do commit " +
+      v.commit.slice(0, 7) + " (tag " + v.tag + ") do projeto. O arquivo versao.json, na raiz do site, traz o md5 de cada arquivo.";
+    p.hidden = false;
+  }).catch(function () {});
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biomassa no Araticum, Goiás</title>
+<meta name="description" content="Biomassa aérea estimada por satélite, NDVI e imagens Sentinel-2 de 49 áreas de restauração da plataforma Araticum em Goiás.">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"
+        integrity="sha256-6EJwvQzVvfYP78JtAMKjkcsugfTSanqe4WGFpUdzo88=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" type="image/svg+xml" href="icone.svg">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<div id="mapa" role="application" aria-label="Mapa dos polígonos"></div>
+
+<section class="painel" id="painel" aria-label="Legenda e seleção">
+  <div class="cab">
+    <button class="botao-cab" id="dobra" aria-expanded="true" aria-controls="corpo-painel" title="Recolher painel">−</button>
+    <h1>Biomassa nas áreas de restauração do Araticum</h1>
+    <p>49 polígonos de restauração em Goiás (plataforma Araticum, LAPIG/UFG). Biomassa aérea (AGB) estimada por
+       satélite, mostrada só onde o modelo se aplica.</p>
+  </div>
+  <div class="corpo" id="corpo-painel">
+    <div class="grupo">
+      <span class="rotulo">Nível de AGB do período (t/ha)</span>
+      <div class="classes" id="legenda"></div>
+    </div>
+    <div class="grupo">
+      <label class="rotulo" for="seletor">Polígono</label>
+      <select id="seletor"><option value="">Escolha um polígono</option></select>
+    </div>
+    <p class="nota">Clique num polígono para ver a imagem de cada ano, o NDVI desde 2000 e as ressalvas do modelo.
+      O nível é a mediana da AGB prevista nos anos em que o polígono está no domínio do modelo. A plataforma não
+      mostra incremento anual: o modelo não o detecta nestes polígonos.
+      <a href="metodologia.html">Metodologia e limitações</a>.</p>
+  </div>
+</section>
+
+<aside class="detalhe" id="detalhe" aria-labelledby="d-titulo" hidden>
+  <div class="cab">
+    <button class="botao-cab" id="fechar" title="Fechar" aria-label="Fechar o painel do polígono">×</button>
+    <h2 id="d-titulo">Polígono</h2>
+    <p id="d-projeto"></p>
+  </div>
+  <div class="corpo">
+    <div class="grupo">
+      <div class="linha">
+        <span class="rotulo">Imagem Sentinel-2</span>
+        <span class="valor" id="v-ano"></span>
+      </div>
+      <figure>
+        <div class="quadro"><img id="imagem" alt="" width="512" height="512"></div>
+        <figcaption id="legenda-imagem"></figcaption>
+      </figure>
+      <input type="range" id="ano" min="2017" max="2024" step="1" value="2024" aria-label="Ano da imagem">
+      <div class="marcas-ano" aria-hidden="true" id="marcas-ano"></div>
+      <p class="credito">Contém dados modificados do Copernicus Sentinel-2 (2017 a 2024).</p>
+    </div>
+
+    <div class="grupo" id="g-agb">
+      <span class="rotulo">Biomassa aérea (AGB)</span>
+      <dl class="nums" id="agb-nums">
+        <div class="num"><dt>Nível do período</dt><dd id="v-nivel"></dd></div>
+        <div class="num"><dt>P10 a P90</dt><dd id="v-intervalo"></dd></div>
+      </dl>
+      <div class="situacao" id="v-situacao" hidden></div>
+      <p class="achado" id="v-agb-nota"></p>
+    </div>
+
+    <div class="grupo">
+      <span class="rotulo">NDVI no fim da estação seca (1/07 a 28/09)</span>
+      <div id="ndvi" role="img" aria-label="Gráfico do NDVI por ano"></div>
+      <details>
+        <summary>Tabela do NDVI</summary>
+        <table id="tabela-ndvi"></table>
+      </details>
+    </div>
+
+    <div class="grupo">
+      <span class="rotulo">Projeto</span>
+      <dl class="ficha" id="ficha"></dl>
+    </div>
+
+    <div class="grupo">
+      <span class="rotulo">Ressalvas deste polígono</span>
+      <ul class="ressalvas" id="ressalvas"></ul>
+    </div>
+
+    <a class="baixar" id="csv" href="#" download>Baixar o CSV do polígono</a>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>

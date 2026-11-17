@@ -1,0 +1,221 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1567,
+ "projeto": {
+  "nome": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+  "fonte": "CEDAC",
+  "instituicao": "CENTRO DE DESENVOLVIMENTO AGROECOLOGICO DO CERRADO",
+  "metodo": "Plantio de Mudas",
+  "municipio": "Sítio d'Abadia",
+  "estado": "Goiás",
+  "data_inicio": "2019",
+  "ano_inicio": 2019,
+  "area_ha": 1.99
+ },
+ "suporte": {
+  "ponto": [
+   -46.187936,
+   -14.852177
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 0.705
+ },
+ "agb": {
+  "situacao": "fora do domínio do modelo",
+  "mostra_nivel": false,
+  "n_anos_preditos": 8,
+  "n_anos_dominio": 0,
+  "anos_dominio": [],
+  "anos_sem_predicao": [],
+  "nivel_t_ha": null,
+  "p10_t_ha": null,
+  "p90_t_ha": null,
+  "classe": null,
+  "n_anos_gedi_imputado": null,
+  "nivel_gedi_proprio_t_ha": null
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.3899,
+   0.4365,
+   0.3546,
+   0.3698,
+   0.1709,
+   0.2106,
+   0.2971,
+   0.3037,
+   0.3518,
+   0.3911,
+   0.2998,
+   0.1948,
+   0.3145,
+   0.2315,
+   0.272,
+   0.3246,
+   0.2857,
+   0.2781,
+   0.3142,
+   0.3545,
+   0.3478,
+   0.3381,
+   0.3007,
+   0.4113,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.3024,
+   0.3321,
+   0.3565,
+   0.2913,
+   0.3067,
+   0.271,
+   0.3686,
+   0.3533
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1567/2017.webp",
+   "marca": "ok",
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1567/2018.webp",
+   "marca": "ok",
+   "n_cenas": 2,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1567/2019.webp",
+   "marca": "ok",
+   "n_cenas": 13,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1567/2020.webp",
+   "marca": "ok",
+   "n_cenas": 14,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1567/2021.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1567/2022.webp",
+   "marca": "ok",
+   "n_cenas": 17,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1567/2023.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1567/2024.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "Nenhum dos 8 anos com predição está no domínio do modelo: as variáveis de satélite deste ponto ficam longe das áreas de treino, e a AGB não é mostrada.",
+  "29 % do círculo de 60 m usado pelo modelo fica fora do polígono."
+ ],
+ "csv": "dados/csv/1567.csv"
+}

@@ -1,0 +1,231 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1522,
+ "projeto": {
+  "nome": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+  "fonte": "CEDAC",
+  "instituicao": "CENTRO DE DESENVOLVIMENTO AGROECOLOGICO DO CERRADO",
+  "metodo": "Plantio de Mudas",
+  "municipio": "Formosa",
+  "estado": "Goiás",
+  "data_inicio": "2019",
+  "ano_inicio": 2019,
+  "area_ha": 1.05
+ },
+ "suporte": {
+  "ponto": [
+   -47.191764,
+   -15.499372
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 0.726
+ },
+ "agb": {
+  "situacao": "nível do período",
+  "mostra_nivel": true,
+  "n_anos_preditos": 8,
+  "n_anos_dominio": 8,
+  "anos_dominio": [
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "anos_sem_predicao": [],
+  "nivel_t_ha": 49.6,
+  "p10_t_ha": 19.84,
+  "p90_t_ha": 85.3,
+  "classe": 2,
+  "n_anos_gedi_imputado": 2,
+  "nivel_gedi_proprio_t_ha": 49.6
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.3859,
+   0.3774,
+   0.3421,
+   0.3878,
+   0.3868,
+   0.3646,
+   0.3725,
+   0.3781,
+   0.3378,
+   0.4366,
+   0.345,
+   0.3735,
+   0.3472,
+   0.3591,
+   0.4022,
+   0.4488,
+   0.3497,
+   0.3692,
+   0.4056,
+   0.3949,
+   0.4474,
+   0.4839,
+   0.3972,
+   0.4187,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.368,
+   0.4278,
+   0.3627,
+   0.4714,
+   0.4278,
+   0.3422,
+   0.3383,
+   0.2928
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1522/2017.webp",
+   "marca": "ok",
+   "n_cenas": 10,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1522/2018.webp",
+   "marca": "ok",
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1522/2019.webp",
+   "marca": "ok",
+   "n_cenas": 27,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1522/2020.webp",
+   "marca": "ok",
+   "n_cenas": 32,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1522/2021.webp",
+   "marca": "ok",
+   "n_cenas": 30,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1522/2022.webp",
+   "marca": "ok",
+   "n_cenas": 32,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1522/2023.webp",
+   "marca": "ok",
+   "n_cenas": 32,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1522/2024.webp",
+   "marca": "ok",
+   "n_cenas": 28,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "8 dos 8 anos com predição estão no domínio do modelo (2017, 2018, 2019, 2020, 2021, 2022, 2023 e 2024). O nível é a mediana da AGB prevista nesses anos.",
+  "27 % do círculo de 60 m usado pelo modelo fica fora do polígono.",
+  "Em 2 dos 8 anos do nível, faltou GEDI no ponto e o modelo usou a mediana do Cerrado. Com o GEDI do próprio polígono, o nível seria de 49,6 t/ha."
+ ],
+ "csv": "dados/csv/1522.csv"
+}

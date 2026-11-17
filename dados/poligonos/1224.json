@@ -1,0 +1,221 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1224,
+ "projeto": {
+  "nome": "Food Products from the Forests in the Cerrado, Brazil",
+  "fonte": "Cooperagrofamiliar",
+  "instituicao": "Cooperativa Agropecuaria dos Produtores Familiares de Niquelandia",
+  "metodo": "Sistemas Agroflorestais (SAFs)",
+  "municipio": "Niquelândia",
+  "estado": "Goiás",
+  "data_inicio": "2021",
+  "ano_inicio": 2021,
+  "area_ha": 1.09
+ },
+ "suporte": {
+  "ponto": [
+   -48.321362,
+   -14.352057
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 0.729
+ },
+ "agb": {
+  "situacao": "fora do domínio do modelo",
+  "mostra_nivel": false,
+  "n_anos_preditos": 8,
+  "n_anos_dominio": 0,
+  "anos_dominio": [],
+  "anos_sem_predicao": [],
+  "nivel_t_ha": null,
+  "p10_t_ha": null,
+  "p90_t_ha": null,
+  "classe": null,
+  "n_anos_gedi_imputado": null,
+  "nivel_gedi_proprio_t_ha": null
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.3784,
+   0.344,
+   0.4232,
+   0.3686,
+   0.4073,
+   0.4237,
+   0.408,
+   0.3515,
+   0.3979,
+   0.4303,
+   0.3307,
+   0.3432,
+   0.3306,
+   0.3932,
+   0.4478,
+   0.422,
+   0.2668,
+   0.3333,
+   0.3211,
+   0.305,
+   0.2666,
+   0.4402,
+   0.3702,
+   0.3979,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.3088,
+   0.3252,
+   0.3077,
+   0.2019,
+   0.3555,
+   0.3249,
+   0.3384,
+   0.2754
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1224/2017.webp",
+   "marca": "ok",
+   "n_cenas": 10,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1224/2018.webp",
+   "marca": "ok",
+   "n_cenas": 2,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1224/2019.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1224/2020.webp",
+   "marca": "ok",
+   "n_cenas": 17,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1224/2021.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1224/2022.webp",
+   "marca": "ok",
+   "n_cenas": 14,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1224/2023.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1224/2024.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "Nenhum dos 8 anos com predição está no domínio do modelo: as variáveis de satélite deste ponto ficam longe das áreas de treino, e a AGB não é mostrada.",
+  "27 % do círculo de 60 m usado pelo modelo fica fora do polígono."
+ ],
+ "csv": "dados/csv/1224.csv"
+}

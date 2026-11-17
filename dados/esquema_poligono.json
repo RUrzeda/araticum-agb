@@ -1,0 +1,85 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Painel de um polígono da plataforma Araticum",
+ "description": "Gerado por scripts/11_web.py. A AGB aparece só como nível do período (D20), e só quando ele é mostrado.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["versao", "gid", "projeto", "suporte", "agb", "ndvi", "imagens", "ressalvas", "csv"],
+ "properties": {
+  "versao": {
+   "type": "object", "additionalProperties": false, "required": ["metodologia", "modelo_md5"],
+   "properties": {"metodologia": {"type": "integer"}, "modelo_md5": {"type": "string", "pattern": "^[0-9a-f]{32}$"}}
+  },
+  "gid": {"type": "integer"},
+  "projeto": {
+   "type": "object", "additionalProperties": false,
+   "required": ["nome", "fonte", "instituicao", "metodo", "municipio", "estado", "data_inicio", "ano_inicio", "area_ha"],
+   "properties": {
+    "nome": {"type": "string", "minLength": 1}, "fonte": {"type": "string"}, "instituicao": {"type": "string"},
+    "metodo": {"type": "string"}, "municipio": {"type": "string"}, "estado": {"const": "Goiás"},
+    "data_inicio": {"type": "string"}, "ano_inicio": {"type": "integer", "minimum": 2000, "maximum": 2024},
+    "area_ha": {"type": "number", "exclusiveMinimum": 0}
+   }
+  },
+  "suporte": {
+   "type": "object", "additionalProperties": false, "required": ["ponto", "raio_m", "fracao_circulo_no_poligono"],
+   "properties": {
+    "ponto": {"type": "array", "prefixItems": [{"type": "number", "minimum": -54, "maximum": -45},
+                                              {"type": "number", "minimum": -20, "maximum": -12}], "items": false},
+    "raio_m": {"const": 60},
+    "fracao_circulo_no_poligono": {"type": "number", "minimum": 0, "maximum": 1}
+   }
+  },
+  "agb": {
+   "type": "object", "additionalProperties": false,
+   "required": ["situacao", "mostra_nivel", "n_anos_preditos", "n_anos_dominio", "anos_dominio", "anos_sem_predicao",
+                "nivel_t_ha", "p10_t_ha", "p90_t_ha", "classe", "n_anos_gedi_imputado", "nivel_gedi_proprio_t_ha"],
+   "properties": {
+    "situacao": {"enum": ["nível do período", "poucos anos no domínio do modelo", "fora do domínio do modelo"]},
+    "mostra_nivel": {"type": "boolean"},
+    "n_anos_preditos": {"type": "integer", "minimum": 0, "maximum": 8},
+    "n_anos_dominio": {"type": "integer", "minimum": 0, "maximum": 8},
+    "anos_dominio": {"type": "array", "items": {"type": "integer", "minimum": 2017, "maximum": 2024}},
+    "anos_sem_predicao": {"type": "array", "items": {"type": "integer", "minimum": 2017, "maximum": 2024}},
+    "nivel_t_ha": {"type": ["number", "null"], "minimum": 0},
+    "p10_t_ha": {"type": ["number", "null"], "minimum": 0},
+    "p90_t_ha": {"type": ["number", "null"], "minimum": 0},
+    "classe": {"type": ["integer", "null"], "minimum": 0, "maximum": 3},
+    "n_anos_gedi_imputado": {"type": ["integer", "null"], "minimum": 0},
+    "nivel_gedi_proprio_t_ha": {"type": ["number", "null"], "minimum": 0}
+   },
+   "if": {"properties": {"mostra_nivel": {"const": true}}},
+   "then": {"properties": {"situacao": {"const": "nível do período"}, "nivel_t_ha": {"type": "number"},
+                           "p10_t_ha": {"type": "number"}, "p90_t_ha": {"type": "number"},
+                           "classe": {"type": "integer"}, "n_anos_dominio": {"minimum": 3}}},
+   "else": {"properties": {"nivel_t_ha": {"type": "null"}, "p10_t_ha": {"type": "null"}, "p90_t_ha": {"type": "null"},
+                           "classe": {"type": "null"}, "nivel_gedi_proprio_t_ha": {"type": "null"}}}
+  },
+  "ndvi": {
+   "type": "object", "additionalProperties": false, "required": ["anos", "landsat", "sensor_landsat", "s2"],
+   "properties": {
+    "anos": {"type": "array", "minItems": 25, "maxItems": 25, "items": {"type": "integer", "minimum": 2000, "maximum": 2024}},
+    "landsat": {"type": "array", "minItems": 25, "maxItems": 25, "items": {"type": ["number", "null"], "minimum": -1, "maximum": 1}},
+    "sensor_landsat": {"type": "array", "minItems": 25, "maxItems": 25, "items": {"enum": ["TM", "ETM", null]}},
+    "s2": {"type": "array", "minItems": 25, "maxItems": 25, "items": {"type": ["number", "null"], "minimum": -1, "maximum": 1}}
+   }
+  },
+  "imagens": {
+   "type": "array", "minItems": 8, "maxItems": 8,
+   "items": {
+    "type": "object", "additionalProperties": false,
+    "required": ["ano", "arquivo", "marca", "n_cenas", "lado_m", "fracao_sem_dado_extensao"],
+    "properties": {
+     "ano": {"type": "integer", "minimum": 2017, "maximum": 2024},
+     "arquivo": {"type": "string", "pattern": "^dados/imagens/[0-9]+/20[0-9]{2}\\.webp$"},
+     "marca": {"enum": ["ok", "nuvem", "sem dado"]},
+     "n_cenas": {"type": "integer", "minimum": 1},
+     "lado_m": {"enum": [640, 1280, 2560]},
+     "fracao_sem_dado_extensao": {"type": "number", "minimum": 0, "maximum": 1}
+    }
+   }
+  },
+  "ressalvas": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 10}},
+  "csv": {"type": "string", "pattern": "^dados/csv/[0-9]+\\.csv$"}
+ }
+}

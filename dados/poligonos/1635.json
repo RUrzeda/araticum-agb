@@ -1,0 +1,230 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1635,
+ "projeto": {
+  "nome": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+  "fonte": "CEDAC",
+  "instituicao": "CENTRO DE DESENVOLVIMENTO AGROECOLOGICO DO CERRADO",
+  "metodo": "Plantio de Mudas",
+  "municipio": "Mambaí",
+  "estado": "Goiás",
+  "data_inicio": "2019",
+  "ano_inicio": 2019,
+  "area_ha": 1.0
+ },
+ "suporte": {
+  "ponto": [
+   -46.013005,
+   -14.3279
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 0.792
+ },
+ "agb": {
+  "situacao": "nível do período",
+  "mostra_nivel": true,
+  "n_anos_preditos": 7,
+  "n_anos_dominio": 4,
+  "anos_dominio": [
+   2018,
+   2019,
+   2023,
+   2024
+  ],
+  "anos_sem_predicao": [
+   2022
+  ],
+  "nivel_t_ha": 28.57,
+  "p10_t_ha": 4.03,
+  "p90_t_ha": 48.11,
+  "classe": 1,
+  "n_anos_gedi_imputado": 0,
+  "nivel_gedi_proprio_t_ha": 28.57
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.3153,
+   0.295,
+   0.3851,
+   0.3425,
+   0.2157,
+   0.3645,
+   0.3728,
+   0.3429,
+   0.3514,
+   0.4074,
+   0.2605,
+   0.3517,
+   0.3706,
+   0.3296,
+   0.3506,
+   0.3598,
+   0.3496,
+   0.3271,
+   0.3513,
+   0.3573,
+   0.3996,
+   0.2544,
+   0.3101,
+   0.383,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.3466,
+   0.44,
+   0.3575,
+   0.3713,
+   0.2326,
+   0.293,
+   0.3189,
+   0.3434
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1635/2017.webp",
+   "marca": "ok",
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1635/2018.webp",
+   "marca": "ok",
+   "n_cenas": 1,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1635/2019.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1635/2020.webp",
+   "marca": "ok",
+   "n_cenas": 14,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1635/2021.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1635/2022.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1635/2023.webp",
+   "marca": "ok",
+   "n_cenas": 16,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1635/2024.webp",
+   "marca": "ok",
+   "n_cenas": 15,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "4 dos 7 anos com predição estão no domínio do modelo (2018, 2019, 2023 e 2024). O nível é a mediana da AGB prevista nesses anos.",
+  "Sem predição em 2022: o mosaico PALSAR do ano tem falha neste local.",
+  "21 % do círculo de 60 m usado pelo modelo fica fora do polígono.",
+  "Este nível fica na faixa que o modelo deu a pastagem estável (25,5 t/ha) e a vegetação secundária jovem (30,3 t/ha) nos pontos de controle. Nessa faixa, o modelo não separa uma coisa da outra."
+ ],
+ "csv": "dados/csv/1635.csv"
+}

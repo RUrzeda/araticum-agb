@@ -1,0 +1,714 @@
+{
+ "titulo": "Biomassa aérea nas áreas de restauração do Araticum em Goiás",
+ "gerado_em": "2026-11-17T10:24:52",
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502",
+  "entradas_md5": {
+   "nivel": "9188b46f50f54d8e654654c00b3d05fa",
+   "ndvi": "c9ef3407518dfc0b1b56a527b0f9d292",
+   "imagens": "66e6aa544f3593273a97d977d24b8edf",
+   "agb": "86fc1417900caab43e7fcfeb93473c04",
+   "recorte": "cf82b54c0bc09efb2983505b6b0ed4a9"
+  }
+ },
+ "classes": [
+  {
+   "rotulo": "menos de 25",
+   "min": 0,
+   "max": 25,
+   "cor": "#b7d3f6",
+   "n": 3
+  },
+  {
+   "rotulo": "25 a 40",
+   "min": 25,
+   "max": 40,
+   "cor": "#6da7ec",
+   "n": 5
+  },
+  {
+   "rotulo": "40 a 55",
+   "min": 40,
+   "max": 55,
+   "cor": "#2a78d6",
+   "n": 13
+  },
+  {
+   "rotulo": "55 ou mais",
+   "min": 55,
+   "max": null,
+   "cor": "#184f95",
+   "n": 4
+  }
+ ],
+ "situacoes": {
+  "nível do período": 25,
+  "poucos anos no domínio do modelo": 1,
+  "fora do domínio do modelo": 23
+ },
+ "cor_neutra": "#9a968e",
+ "cores_ndvi": {
+  "landsat": "#3987e5",
+  "s2": "#d95926"
+ },
+ "anos_imagens": [
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024
+ ],
+ "limiar_aoa": 0.305,
+ "min_anos_nivel": 3,
+ "controles_nivel_t_ha": {
+  "floresta_estavel": 63.62,
+  "fogo": 43.75,
+  "pastagem_estavel": 25.5,
+  "regeneracao": 30.34,
+  "savana_estavel": 43.29
+ },
+ "mapa_base_padrao": "Satélite",
+ "poligonos": [
+  {
+   "gid": 1033,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 70.85,
+   "classe": 3,
+   "ponto": [
+    -46.24843,
+    -14.877409
+   ]
+  },
+  {
+   "gid": 1078,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Mambaí",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -46.165986,
+    -14.482927
+   ]
+  },
+  {
+   "gid": 1093,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 52.27,
+   "classe": 2,
+   "ponto": [
+    -52.824958,
+    -17.610159
+   ]
+  },
+  {
+   "gid": 1121,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Mambaí",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -45.975662,
+    -14.369952
+   ]
+  },
+  {
+   "gid": 1134,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Mambaí",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 34.17,
+   "classe": 1,
+   "ponto": [
+    -46.142365,
+    -14.503431
+   ]
+  },
+  {
+   "gid": 1136,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.112016,
+    -17.904663
+   ]
+  },
+  {
+   "gid": 1149,
+   "projeto": "Food Products from the Forests in the Cerrado, Brazil",
+   "municipio": "Niquelândia",
+   "ano_inicio": 2021,
+   "situacao": "nível do período",
+   "nivel_t_ha": 43.87,
+   "classe": 2,
+   "ponto": [
+    -48.470335,
+    -14.25722
+   ]
+  },
+  {
+   "gid": 1182,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 53.05,
+   "classe": 2,
+   "ponto": [
+    -52.816606,
+    -17.605427
+   ]
+  },
+  {
+   "gid": 1204,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.112638,
+    -17.916947
+   ]
+  },
+  {
+   "gid": 1207,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Mambaí",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 28.85,
+   "classe": 1,
+   "ponto": [
+    -46.142002,
+    -14.495347
+   ]
+  },
+  {
+   "gid": 1217,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.120585,
+    -17.911759
+   ]
+  },
+  {
+   "gid": 1224,
+   "projeto": "Food Products from the Forests in the Cerrado, Brazil",
+   "municipio": "Niquelândia",
+   "ano_inicio": 2021,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -48.321362,
+    -14.352057
+   ]
+  },
+  {
+   "gid": 1243,
+   "projeto": "Food Products from the Forests in the Cerrado, Brazil",
+   "municipio": "Niquelândia",
+   "ano_inicio": 2021,
+   "situacao": "poucos anos no domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -48.924275,
+    -14.552888
+   ]
+  },
+  {
+   "gid": 1250,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Formosa",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -47.210264,
+    -15.555699
+   ]
+  },
+  {
+   "gid": 1251,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 53.97,
+   "classe": 2,
+   "ponto": [
+    -53.041542,
+    -17.972569
+   ]
+  },
+  {
+   "gid": 1264,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.110593,
+    -17.921641
+   ]
+  },
+  {
+   "gid": 1277,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -46.25007,
+    -14.88592
+   ]
+  },
+  {
+   "gid": 1294,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -46.177277,
+    -14.84618
+   ]
+  },
+  {
+   "gid": 1307,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.035926,
+    -17.981151
+   ]
+  },
+  {
+   "gid": 1332,
+   "projeto": "Food Products from the Forests in the Cerrado, Brazil",
+   "municipio": "Niquelândia",
+   "ano_inicio": 2021,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -48.902732,
+    -14.554666
+   ]
+  },
+  {
+   "gid": 1350,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 56.56,
+   "classe": 3,
+   "ponto": [
+    -53.035371,
+    -17.972513
+   ]
+  },
+  {
+   "gid": 1356,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 53.55,
+   "classe": 2,
+   "ponto": [
+    -53.033747,
+    -17.971751
+   ]
+  },
+  {
+   "gid": 1364,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 42.77,
+   "classe": 2,
+   "ponto": [
+    -46.267406,
+    -14.717984
+   ]
+  },
+  {
+   "gid": 1377,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 53.87,
+   "classe": 2,
+   "ponto": [
+    -52.823036,
+    -17.603759
+   ]
+  },
+  {
+   "gid": 1400,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Guarani de Goiás",
+   "ano_inicio": 2020,
+   "situacao": "nível do período",
+   "nivel_t_ha": 22.58,
+   "classe": 0,
+   "ponto": [
+    -46.345555,
+    -13.870989
+   ]
+  },
+  {
+   "gid": 1401,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -46.17796,
+    -14.846314
+   ]
+  },
+  {
+   "gid": 1412,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "São Domingos",
+   "ano_inicio": 2020,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -46.233189,
+    -13.360175
+   ]
+  },
+  {
+   "gid": 1425,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 75.55,
+   "classe": 3,
+   "ponto": [
+    -52.826213,
+    -17.614927
+   ]
+  },
+  {
+   "gid": 1443,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "São Domingos",
+   "ano_inicio": 2020,
+   "situacao": "nível do período",
+   "nivel_t_ha": 22.99,
+   "classe": 0,
+   "ponto": [
+    -46.341803,
+    -13.70953
+   ]
+  },
+  {
+   "gid": 1448,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 43.65,
+   "classe": 2,
+   "ponto": [
+    -46.245659,
+    -14.7336
+   ]
+  },
+  {
+   "gid": 1455,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 45.5,
+   "classe": 2,
+   "ponto": [
+    -46.246343,
+    -14.733768
+   ]
+  },
+  {
+   "gid": 1459,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.120064,
+    -17.906737
+   ]
+  },
+  {
+   "gid": 1466,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.117308,
+    -17.904429
+   ]
+  },
+  {
+   "gid": 1475,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.114255,
+    -17.911971
+   ]
+  },
+  {
+   "gid": 1488,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "São Domingos",
+   "ano_inicio": 2020,
+   "situacao": "nível do período",
+   "nivel_t_ha": 28.32,
+   "classe": 1,
+   "ponto": [
+    -46.346454,
+    -13.704377
+   ]
+  },
+  {
+   "gid": 1509,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Flores de Goiás",
+   "ano_inicio": 2020,
+   "situacao": "nível do período",
+   "nivel_t_ha": 16.11,
+   "classe": 0,
+   "ponto": [
+    -47.06818,
+    -14.480083
+   ]
+  },
+  {
+   "gid": 1510,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Mambaí",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 41.39,
+   "classe": 2,
+   "ponto": [
+    -46.146407,
+    -14.50027
+   ]
+  },
+  {
+   "gid": 1514,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "nível do período",
+   "nivel_t_ha": 63.05,
+   "classe": 3,
+   "ponto": [
+    -52.829035,
+    -17.612958
+   ]
+  },
+  {
+   "gid": 1522,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Formosa",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 49.6,
+   "classe": 2,
+   "ponto": [
+    -47.191764,
+    -15.499372
+   ]
+  },
+  {
+   "gid": 1552,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "São Domingos",
+   "ano_inicio": 2020,
+   "situacao": "nível do período",
+   "nivel_t_ha": 25.0,
+   "classe": 1,
+   "ponto": [
+    -46.341182,
+    -13.705344
+   ]
+  },
+  {
+   "gid": 1554,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 42.98,
+   "classe": 2,
+   "ponto": [
+    -46.285363,
+    -14.769283
+   ]
+  },
+  {
+   "gid": 1556,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.116201,
+    -17.912737
+   ]
+  },
+  {
+   "gid": 1567,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -46.187936,
+    -14.852177
+   ]
+  },
+  {
+   "gid": 1577,
+   "projeto": "Food Products from the Forests in the Cerrado, Brazil",
+   "municipio": "Niquelândia",
+   "ano_inicio": 2021,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -48.325401,
+    -14.410306
+   ]
+  },
+  {
+   "gid": 1579,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.109457,
+    -17.910392
+   ]
+  },
+  {
+   "gid": 1583,
+   "projeto": "Food Products from the Forests in the Cerrado, Brazil",
+   "municipio": "Niquelândia",
+   "ano_inicio": 2021,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -48.931633,
+    -14.547873
+   ]
+  },
+  {
+   "gid": 1594,
+   "projeto": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+   "municipio": "Mineiros",
+   "ano_inicio": 2010,
+   "situacao": "fora do domínio do modelo",
+   "nivel_t_ha": null,
+   "classe": null,
+   "ponto": [
+    -53.104463,
+    -17.919069
+   ]
+  },
+  {
+   "gid": 1633,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Sítio d'Abadia",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 42.4,
+   "classe": 2,
+   "ponto": [
+    -46.287272,
+    -14.654757
+   ]
+  },
+  {
+   "gid": 1635,
+   "projeto": "Fortalecer Cadeias Sociobioprodutivas em Rede Baseadas no uso Sustentavel do Cerrado",
+   "municipio": "Mambaí",
+   "ano_inicio": 2019,
+   "situacao": "nível do período",
+   "nivel_t_ha": 28.57,
+   "classe": 1,
+   "ponto": [
+    -46.013005,
+    -14.3279
+   ]
+  }
+ ]
+}

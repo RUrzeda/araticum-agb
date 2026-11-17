@@ -1,0 +1,26 @@
+gid,ano,ano_inicio,ndvi_landsat,sensor_landsat,ndvi_s2,imagem,marca_imagem,n_cenas_imagem,no_dominio_do_modelo,situacao_agb,agb_nivel_periodo_t_ha,agb_p10_t_ha,agb_p90_t_ha
+1514,2000,2010,0.3695,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2001,2010,0.4088,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2002,2010,0.416,ETM,,,,,,nível do período,63.05,28.91,98.17
+1514,2003,2010,0.3547,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2004,2010,0.2903,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2005,2010,0.3172,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2006,2010,0.3681,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2007,2010,0.3792,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2008,2010,0.3922,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2009,2010,0.4507,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2010,2010,0.3427,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2011,2010,0.3772,TM,,,,,,nível do período,63.05,28.91,98.17
+1514,2012,2010,0.4275,ETM,,,,,,nível do período,63.05,28.91,98.17
+1514,2013,2010,0.4843,ETM,,,,,,nível do período,63.05,28.91,98.17
+1514,2014,2010,0.5326,ETM,,,,,,nível do período,63.05,28.91,98.17
+1514,2015,2010,0.5456,ETM,,,,,,nível do período,63.05,28.91,98.17
+1514,2016,2010,0.5234,ETM,,,,,,nível do período,63.05,28.91,98.17
+1514,2017,2010,0.5173,ETM,0.5103,dados/imagens/1514/2017.webp,ok,14,sim,nível do período,63.05,28.91,98.17
+1514,2018,2010,0.5286,ETM,0.4935,dados/imagens/1514/2018.webp,ok,6,sim,nível do período,63.05,28.91,98.17
+1514,2019,2010,0.5746,ETM,0.582,dados/imagens/1514/2019.webp,ok,22,sim,nível do período,63.05,28.91,98.17
+1514,2020,2010,0.59,ETM,0.6096,dados/imagens/1514/2020.webp,ok,32,sim,nível do período,63.05,28.91,98.17
+1514,2021,2010,0.5917,ETM,0.578,dados/imagens/1514/2021.webp,ok,34,sim,nível do período,63.05,28.91,98.17
+1514,2022,2010,0.6288,ETM,0.6518,dados/imagens/1514/2022.webp,ok,23,sim,nível do período,63.05,28.91,98.17
+1514,2023,2010,0.7072,ETM,0.691,dados/imagens/1514/2023.webp,ok,20,sim,nível do período,63.05,28.91,98.17
+1514,2024,2010,,,0.6706,dados/imagens/1514/2024.webp,ok,26,sim,nível do período,63.05,28.91,98.17

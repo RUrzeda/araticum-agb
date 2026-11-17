@@ -1,0 +1,220 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1217,
+ "projeto": {
+  "nome": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+  "fonte": "BRCARBON",
+  "instituicao": "OREADES Nucleo de Geoprocessamento e BRCARBON",
+  "metodo": "Plantio de Mudas",
+  "municipio": "Mineiros",
+  "estado": "Goiás",
+  "data_inicio": "2010",
+  "ano_inicio": 2010,
+  "area_ha": 73.72
+ },
+ "suporte": {
+  "ponto": [
+   -53.120585,
+   -17.911759
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 1.0
+ },
+ "agb": {
+  "situacao": "fora do domínio do modelo",
+  "mostra_nivel": false,
+  "n_anos_preditos": 8,
+  "n_anos_dominio": 0,
+  "anos_dominio": [],
+  "anos_sem_predicao": [],
+  "nivel_t_ha": null,
+  "p10_t_ha": null,
+  "p90_t_ha": null,
+  "classe": null,
+  "n_anos_gedi_imputado": null,
+  "nivel_gedi_proprio_t_ha": null
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.25,
+   0.2574,
+   0.2725,
+   0.2761,
+   0.2547,
+   0.2245,
+   0.2859,
+   0.2692,
+   0.2305,
+   0.2944,
+   0.224,
+   0.2512,
+   0.2393,
+   0.2035,
+   0.2174,
+   0.2285,
+   0.2637,
+   0.2292,
+   0.2371,
+   0.2165,
+   0.2001,
+   0.234,
+   0.3025,
+   0.3895,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "ETM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.2066,
+   0.2213,
+   0.1972,
+   0.1831,
+   0.2185,
+   0.2579,
+   0.2758,
+   0.2756
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1217/2017.webp",
+   "marca": "ok",
+   "n_cenas": 7,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1217/2018.webp",
+   "marca": "ok",
+   "n_cenas": 3,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1217/2019.webp",
+   "marca": "ok",
+   "n_cenas": 11,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1217/2020.webp",
+   "marca": "ok",
+   "n_cenas": 17,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1217/2021.webp",
+   "marca": "ok",
+   "n_cenas": 17,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1217/2022.webp",
+   "marca": "ok",
+   "n_cenas": 11,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1217/2023.webp",
+   "marca": "ok",
+   "n_cenas": 10,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1217/2024.webp",
+   "marca": "ok",
+   "n_cenas": 12,
+   "lado_m": 2560,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "Nenhum dos 8 anos com predição está no domínio do modelo: as variáveis de satélite deste ponto ficam longe das áreas de treino, e a AGB não é mostrada."
+ ],
+ "csv": "dados/csv/1217.csv"
+}

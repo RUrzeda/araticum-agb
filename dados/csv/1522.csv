@@ -1,0 +1,26 @@
+gid,ano,ano_inicio,ndvi_landsat,sensor_landsat,ndvi_s2,imagem,marca_imagem,n_cenas_imagem,no_dominio_do_modelo,situacao_agb,agb_nivel_periodo_t_ha,agb_p10_t_ha,agb_p90_t_ha
+1522,2000,2019,0.3859,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2001,2019,0.3774,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2002,2019,0.3421,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2003,2019,0.3878,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2004,2019,0.3868,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2005,2019,0.3646,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2006,2019,0.3725,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2007,2019,0.3781,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2008,2019,0.3378,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2009,2019,0.4366,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2010,2019,0.345,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2011,2019,0.3735,TM,,,,,,nível do período,49.6,19.84,85.3
+1522,2012,2019,0.3472,ETM,,,,,,nível do período,49.6,19.84,85.3
+1522,2013,2019,0.3591,ETM,,,,,,nível do período,49.6,19.84,85.3
+1522,2014,2019,0.4022,ETM,,,,,,nível do período,49.6,19.84,85.3
+1522,2015,2019,0.4488,ETM,,,,,,nível do período,49.6,19.84,85.3
+1522,2016,2019,0.3497,ETM,,,,,,nível do período,49.6,19.84,85.3
+1522,2017,2019,0.3692,ETM,0.368,dados/imagens/1522/2017.webp,ok,10,sim,nível do período,49.6,19.84,85.3
+1522,2018,2019,0.4056,ETM,0.4278,dados/imagens/1522/2018.webp,ok,4,sim,nível do período,49.6,19.84,85.3
+1522,2019,2019,0.3949,ETM,0.3627,dados/imagens/1522/2019.webp,ok,27,sim,nível do período,49.6,19.84,85.3
+1522,2020,2019,0.4474,ETM,0.4714,dados/imagens/1522/2020.webp,ok,32,sim,nível do período,49.6,19.84,85.3
+1522,2021,2019,0.4839,ETM,0.4278,dados/imagens/1522/2021.webp,ok,30,sim,nível do período,49.6,19.84,85.3
+1522,2022,2019,0.3972,ETM,0.3422,dados/imagens/1522/2022.webp,ok,32,sim,nível do período,49.6,19.84,85.3
+1522,2023,2019,0.4187,ETM,0.3383,dados/imagens/1522/2023.webp,ok,32,sim,nível do período,49.6,19.84,85.3
+1522,2024,2019,,,0.2928,dados/imagens/1522/2024.webp,ok,28,sim,nível do período,49.6,19.84,85.3

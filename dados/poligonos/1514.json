@@ -1,0 +1,231 @@
+{
+ "versao": {
+  "metodologia": 3,
+  "modelo_md5": "3279406c75587240a30cb7383496e502"
+ },
+ "gid": 1514,
+ "projeto": {
+  "nome": "Projeto de Carbono no Corredor de Biodiversidade EMAS-Taquari",
+  "fonte": "BRCARBON",
+  "instituicao": "OREADES Nucleo de Geoprocessamento e BRCARBON",
+  "metodo": "Plantio de Mudas",
+  "municipio": "Mineiros",
+  "estado": "Goiás",
+  "data_inicio": "2010",
+  "ano_inicio": 2010,
+  "area_ha": 1.54
+ },
+ "suporte": {
+  "ponto": [
+   -52.829035,
+   -17.612958
+  ],
+  "raio_m": 60,
+  "fracao_circulo_no_poligono": 0.925
+ },
+ "agb": {
+  "situacao": "nível do período",
+  "mostra_nivel": true,
+  "n_anos_preditos": 8,
+  "n_anos_dominio": 8,
+  "anos_dominio": [
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "anos_sem_predicao": [],
+  "nivel_t_ha": 63.05,
+  "p10_t_ha": 28.91,
+  "p90_t_ha": 98.17,
+  "classe": 3,
+  "n_anos_gedi_imputado": 3,
+  "nivel_gedi_proprio_t_ha": 61.35
+ },
+ "ndvi": {
+  "anos": [
+   2000,
+   2001,
+   2002,
+   2003,
+   2004,
+   2005,
+   2006,
+   2007,
+   2008,
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2022,
+   2023,
+   2024
+  ],
+  "landsat": [
+   0.3695,
+   0.4088,
+   0.416,
+   0.3547,
+   0.2903,
+   0.3172,
+   0.3681,
+   0.3792,
+   0.3922,
+   0.4507,
+   0.3427,
+   0.3772,
+   0.4275,
+   0.4843,
+   0.5326,
+   0.5456,
+   0.5234,
+   0.5173,
+   0.5286,
+   0.5746,
+   0.59,
+   0.5917,
+   0.6288,
+   0.7072,
+   null
+  ],
+  "sensor_landsat": [
+   "TM",
+   "TM",
+   "ETM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "TM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   "ETM",
+   null
+  ],
+  "s2": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   0.5103,
+   0.4935,
+   0.582,
+   0.6096,
+   0.578,
+   0.6518,
+   0.691,
+   0.6706
+  ]
+ },
+ "imagens": [
+  {
+   "ano": 2017,
+   "arquivo": "dados/imagens/1514/2017.webp",
+   "marca": "ok",
+   "n_cenas": 14,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2018,
+   "arquivo": "dados/imagens/1514/2018.webp",
+   "marca": "ok",
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2019,
+   "arquivo": "dados/imagens/1514/2019.webp",
+   "marca": "ok",
+   "n_cenas": 22,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2020,
+   "arquivo": "dados/imagens/1514/2020.webp",
+   "marca": "ok",
+   "n_cenas": 32,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2021,
+   "arquivo": "dados/imagens/1514/2021.webp",
+   "marca": "ok",
+   "n_cenas": 34,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2022,
+   "arquivo": "dados/imagens/1514/2022.webp",
+   "marca": "ok",
+   "n_cenas": 23,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2023,
+   "arquivo": "dados/imagens/1514/2023.webp",
+   "marca": "ok",
+   "n_cenas": 20,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2024,
+   "arquivo": "dados/imagens/1514/2024.webp",
+   "marca": "ok",
+   "n_cenas": 26,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  }
+ ],
+ "ressalvas": [
+  "8 dos 8 anos com predição estão no domínio do modelo (2017, 2018, 2019, 2020, 2021, 2022, 2023 e 2024). O nível é a mediana da AGB prevista nesses anos.",
+  "7 % do círculo de 60 m usado pelo modelo fica fora do polígono.",
+  "Em 3 dos 8 anos do nível, faltou GEDI no ponto e o modelo usou a mediana do Cerrado. Com o GEDI do próprio polígono, o nível seria de 61,4 t/ha."
+ ],
+ "csv": "dados/csv/1514.csv"
+}
