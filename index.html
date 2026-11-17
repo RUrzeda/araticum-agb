@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Biomassa no Araticum, Goiás</title>
-<meta name="description" content="Biomassa aérea estimada por satélite, NDVI e imagens Sentinel-2 de 49 áreas de restauração da plataforma Araticum em Goiás.">
+<meta name="description" content="Biomassa aérea estimada por satélite, NDVI e imagens Landsat e Sentinel-2 de 49 áreas de restauração da plataforma Araticum em Goiás.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -35,9 +35,10 @@
       <label class="rotulo" for="seletor">Polígono</label>
       <select id="seletor"><option value="">Escolha um polígono</option></select>
     </div>
-    <p class="nota">Clique num polígono para ver a imagem de cada ano, o NDVI desde 2000 e as ressalvas do modelo.
-      O nível é a mediana da AGB prevista nos anos em que o polígono está no domínio do modelo. A plataforma não
-      mostra incremento anual: o modelo não o detecta nestes polígonos.
+    <p class="nota">Clique num polígono para ver a imagem e o NDVI de cada ano desde 2000, a AGB prevista e as ressalvas
+      do modelo. O nível é a mediana da AGB prevista nos anos em que o polígono está no domínio do modelo. A AGB de cada
+      ano vem com o aviso de que a variação entre anos não é crescimento: o modelo não detecta o incremento nestes
+      polígonos.
       <a href="metodologia.html">Metodologia e limitações</a>.</p>
   </div>
 </section>
@@ -51,16 +52,16 @@
   <div class="corpo">
     <div class="grupo">
       <div class="linha">
-        <span class="rotulo">Imagem Sentinel-2</span>
+        <span class="rotulo" id="r-imagem">Imagem de satélite</span>
         <span class="valor" id="v-ano"></span>
       </div>
       <figure>
         <div class="quadro"><img id="imagem" alt="" width="512" height="512"></div>
         <figcaption id="legenda-imagem"></figcaption>
       </figure>
-      <input type="range" id="ano" min="2017" max="2024" step="1" value="2024" aria-label="Ano da imagem">
+      <input type="range" id="ano" min="2000" max="2024" step="1" value="2024" aria-label="Ano da imagem">
       <div class="marcas-ano" aria-hidden="true" id="marcas-ano"></div>
-      <p class="credito">Contém dados modificados do Copernicus Sentinel-2 (2017 a 2024).</p>
+      <p class="credito">De 2000 a 2016: Landsat, cortesia do U.S. Geological Survey. De 2017 a 2024: contém dados modificados do Copernicus Sentinel-2.</p>
     </div>
 
     <div class="grupo" id="g-agb">
@@ -71,6 +72,15 @@
       </dl>
       <div class="situacao" id="v-situacao" hidden></div>
       <p class="achado" id="v-agb-nota"></p>
+      <div class="grupo" id="g-agb-anual" hidden>
+        <span class="rotulo">AGB prevista em cada ano (t/ha)</span>
+        <div id="agb-grafico" role="img" aria-label="Gráfico da AGB prevista em cada ano, com o P10 e o P90"></div>
+        <p class="achado" id="agb-aviso"></p>
+        <details>
+          <summary>Tabela da AGB por ano</summary>
+          <table id="tabela-agb"></table>
+        </details>
+      </div>
     </div>
 
     <div class="grupo">

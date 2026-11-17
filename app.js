@@ -1,9 +1,10 @@
 /* Plataforma Araticum (Etapa 11). Lê os arquivos gerados por scripts/11_web.py.
-   A AGB aparece só como nível do período (D20); o NDVI Landsat é só TM e ETM+ (D21). */
+   AGB como nível do período (D20) e como valor de cada ano no domínio do modelo, sem tendência (D22);
+   NDVI Landsat só TM e ETM+ (D21); imagens Landsat de 2000 a 2016 e S2 de 2017 a 2024 (D23). */
 (function () {
   "use strict";
 
-  var meta = null, camadaPol = null, camadaPts = null, selecionado = null, grafico = null;
+  var meta = null, camadaPol = null, camadaPts = null, selecionado = null, grafico = null, graficoAgb = null;
   var cache = {}, atual = null, anoAtual = 2024;
   var porGid = {};
 
@@ -103,10 +104,10 @@
       el("detalhe").hidden = false;
       el("d-titulo").textContent = "Polígono " + gid;
       el("d-projeto").textContent = j.projeto.nome + " · " + j.projeto.municipio;
-      preencherAgb(j); preencherFicha(j); preencherRessalvas(j); preencherTabela(j);
+      preencherAgb(j); preencherAgbAnual(j); preencherFicha(j); preencherRessalvas(j); preencherTabela(j);
       el("csv").href = j.csv; el("csv").setAttribute("download", "araticum_" + gid + ".csv");
       definirAno(opcoes && opcoes.ano ? opcoes.ano : anoAtual);
-      desenharGrafico(j);
+      desenharGrafico(j); desenharAgb(j);
       redesenhar();
       if (estreita()) dobrarPainel(true);
       if (!(opcoes && opcoes.semZoom)) {
@@ -127,7 +128,7 @@
       el("v-intervalo").innerHTML = num(a.p10_t_ha, 1) + " a " + num(a.p90_t_ha, 1) + "<span> t/ha</span>";
       el("v-agb-nota").textContent = "Mediana da AGB prevista em " + a.n_anos_dominio + " anos no domínio do modelo. " +
         "O intervalo é de referência (P10 e P90 de um RF auxiliar), sem garantia de cobertura: cobriu 78 % da AGB " +
-        "de campo no treino. A variação de um ano para outro não mede crescimento e não é mostrada.";
+        "de campo no treino.";
     } else {
       el("v-nivel").textContent = ""; el("v-intervalo").textContent = "";
       el("v-situacao").innerHTML = "<b>" + esc(a.situacao.charAt(0).toUpperCase() + a.situacao.slice(1)) + ".</b> " +
@@ -168,16 +169,106 @@
     if (!atual) return;
     var im = atual.imagens.filter(function (x) { return x.ano === ano; })[0];
     el("imagem").src = im.arquivo;
-    el("imagem").alt = "Imagem Sentinel-2 em cor verdadeira do polígono " + atual.gid + " em " + ano;
-    var dom = atual.agb.anos_dominio.indexOf(ano) >= 0 ? "no domínio do modelo"
-      : (atual.agb.anos_sem_predicao.indexOf(ano) >= 0 ? "sem predição" : "fora do domínio do modelo");
+    el("imagem").alt = "Imagem " + im.sensor + " em cor verdadeira do polígono " + atual.gid + " em " + ano;
+    el("r-imagem").textContent = "Imagem " + im.sensor + ", pixel de " + im.pixel_m + " m";
+    var sit = situacaoAno(atual, ano);
     el("legenda-imagem").innerHTML = "Mediana de " + im.n_cenas + " cena" + (im.n_cenas > 1 ? "s" : "") +
       " de 1/07 a 28/09 de " + ano + ", recorte de " + im.lado_m + " m. " +
       '<span class="chave" style="background:#ffd400"></span>polígono ' +
       '<span class="chave" style="background:#00e5ff"></span>círculo de 60 m do modelo. ' +
-      "Ano " + dom + (im.marca !== "ok" ? "; imagem marcada: " + im.marca : "") + ".";
+      (sit === "o modelo não roda" ? "Antes de " + meta.agb_anual.ano_inicio_modelo +
+        " o modelo não roda (não há Sentinel-1 nem GEDI)" : "Ano " + sit) +
+      (im.marca !== "ok" ? "; imagem marcada: " + im.marca : "") + ".";
     el("imagem").setAttribute("data-ano", String(ano));
     if (grafico) grafico.setOption({ series: [{ id: "landsat", markLine: marcas(atual) }] });
+    if (graficoAgb && atual.agb.serie) graficoAgb.setOption({ series: [{ id: "agb", markLine: marcasAgb(atual) }] });
+  }
+
+  // situação de um ano no modelo: antes do início do modelo, dentro, sem predição ou fora do domínio
+  function situacaoAno(j, ano) {
+    if (ano < meta.agb_anual.ano_inicio_modelo) return "o modelo não roda";
+    if (j.agb.anos_dominio.indexOf(ano) >= 0) return "no domínio do modelo";
+    return j.agb.anos_sem_predicao.indexOf(ano) >= 0 ? "sem predição" : "fora do domínio do modelo";
+  }
+
+  // ── AGB de cada ano (D22): só nos anos no domínio do modelo, sem tendência ──
+  function preencherAgbAnual(j) {
+    var s = j.agb.serie;
+    el("g-agb-anual").hidden = !s;
+    if (!s) return;
+    var h = "<thead><tr><th>Ano</th><th>AGB</th><th>P10</th><th>P90</th></tr></thead><tbody>";
+    for (var i = 0; i < s.anos.length; i++) {
+      h += "<tr><td>" + s.anos[i] + "</td>" + (s.agb[i] === null
+        ? '<td colspan="3">' + situacaoAno(j, s.anos[i]) + "</td>"
+        : "<td>" + num(s.agb[i], 1) + "</td><td>" + num(s.p10[i], 1) + "</td><td>" + num(s.p90[i], 1) + "</td>") +
+        "</tr>";
+    }
+    el("tabela-agb").innerHTML = h + "</tbody>";
+    var aa = meta.agb_anual, ref = aa.incremento_referencia_t_ha_ano;
+    el("agb-aviso").textContent = "Cada ponto é a AGB prevista no ano, com a barra do P10 ao P90, só nos anos no " +
+      "domínio do modelo. A variação de um ano para outro não é crescimento: entre anos seguidos, a AGB prevista " +
+      "destes polígonos salta até " + num(aa.salto_max_t_ha, 0) + " t/ha, e o cerrado em regeneração cresce de " +
+      num(ref[0], 1) + " a " + num(ref[1], 1) + " t/ha por ano. Nos pontos de controle do MapBiomas, a vegetação " +
+      "secundária jovem não subiu e o fogo não derrubou a AGB prevista. As linhas pontilhadas são o nível que o " +
+      "modelo deu a esses controles.";
+  }
+
+  function marcasAgb(j) {
+    // linhas dos controles em toda a largura; rótulos na faixa sem modelo, à esquerda, longe dos pontos
+    var c = meta.controles_nivel_t_ha, cinza = "#9a968e";
+    var refs = [["floresta", c.floresta_estavel, "insideStartTop"], ["savana", c.savana_estavel, "insideStartTop"],
+                ["regeneração", c.regeneracao, "insideStartTop"], ["pastagem", c.pastagem_estavel, "insideStartBottom"]];
+    var m = marcas(j);
+    m.data = m.data.concat(refs.map(function (r) {
+      return [{ coord: [2000, r[1]], lineStyle: { color: cinza, type: "dotted", width: 1, opacity: 0.8 },
+                label: { formatter: r[0] + " " + num(r[1], 1), color: cinza, fontSize: 9, position: r[2], distance: 2 } },
+              { coord: [2024, r[1]] }];
+    }));
+    return m;
+  }
+
+  function desenharAgb(j) {
+    var s = j.agb.serie;
+    if (!s) return;
+    if (!graficoAgb) graficoAgb = echarts.init(el("agb-grafico"), null, { renderer: "svg" });
+    var pts = [], barras = [];
+    for (var i = 0; i < s.anos.length; i++) {
+      pts.push([s.anos[i], s.agb[i]]);
+      if (s.agb[i] !== null) barras.push([s.anos[i], s.p10[i], s.p90[i]]);
+    }
+    var tinta = "#e8e6e1", fraca = "#9a968e", linha = "#32363d", cor = "#b7d3f6";
+    graficoAgb.setOption({
+      animation: false,
+      grid: { left: 40, right: 56, top: 10, bottom: 24 },
+      tooltip: { trigger: "item", backgroundColor: "#16181c", borderColor: linha, textStyle: { color: tinta, fontSize: 11 },
+        formatter: function (p) {
+          var k = s.anos.indexOf(p.value[0]);
+          return "<b>" + s.anos[k] + "</b><br>AGB prevista: " + num(s.agb[k], 1) + " t/ha<br>P10 a P90: " +
+            num(s.p10[k], 1) + " a " + num(s.p90[k], 1) + " t/ha";
+        } },
+      xAxis: { type: "value", min: 2000, max: 2024, interval: 4, axisLabel: { color: fraca, fontSize: 10, formatter: String },
+        axisLine: { lineStyle: { color: linha } }, splitLine: { show: false } },
+      yAxis: { type: "value", min: 0,
+        axisLabel: { color: fraca, fontSize: 10 }, splitLine: { lineStyle: { color: linha, opacity: 0.6 } } },
+      series: [
+        { id: "barras", type: "custom", silent: true, data: barras, encode: { x: 0, y: [1, 2] }, z: 1,
+          renderItem: function (params, api) {
+            var a = api.coord([api.value(0), api.value(1)]), b = api.coord([api.value(0), api.value(2)]), w = 3;
+            var st = { stroke: fraca, lineWidth: 1.5 };
+            return { type: "group", children: [
+              { type: "line", shape: { x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, style: st },
+              { type: "line", shape: { x1: a[0] - w, y1: a[1], x2: a[0] + w, y2: a[1] }, style: st },
+              { type: "line", shape: { x1: b[0] - w, y1: b[1], x2: b[0] + w, y2: b[1] }, style: st }] };
+          } },
+        { id: "agb", name: "AGB prevista", type: "line", data: pts, connectNulls: false, symbol: "circle", symbolSize: 7,
+          z: 3, lineStyle: { width: 1.5, color: cor }, itemStyle: { color: cor, borderColor: "#16181c", borderWidth: 1.5 },
+          markLine: marcasAgb(j),
+          markArea: { silent: true, itemStyle: { color: "rgba(154,150,142,0.07)" },
+            label: { show: true, position: "insideTop", color: fraca, fontSize: 10,
+              formatter: "sem modelo antes de " + meta.agb_anual.ano_inicio_modelo },
+            data: [[{ xAxis: 2000 }, { xAxis: meta.agb_anual.ano_inicio_modelo - 0.5 }]] } }
+      ]
+    }, true);
   }
 
   // ── gráfico do NDVI ───────────────────────────────────────────────────────
@@ -241,7 +332,14 @@
     bases[meta.mapa_base_padrao].addTo(mapa);
     meta.poligonos.forEach(function (p) { porGid[p.gid] = p; });
     legenda();
-    el("marcas-ano").innerHTML = meta.anos_imagens.map(function (a) { return "<span>" + a + "</span>"; }).join("");
+    // slider com os anos das imagens; rótulo em 2000, a cada 5 anos, no início do modelo e no último ano
+    var anos = meta.anos_imagens, a0 = anos[0], a1 = anos[anos.length - 1], ini = meta.agb_anual.ano_inicio_modelo;
+    el("ano").min = String(a0); el("ano").max = String(a1);
+    el("marcas-ano").innerHTML = anos.filter(function (a) {
+      return a === a0 || a === a1 || a === ini || (a % 5 === 0 && Math.abs(a - ini) > 2 && a1 - a > 2);
+    }).map(function (a) {
+      return '<span style="left:calc(8px + (100% - 16px) * ' + ((a - a0) / (a1 - a0)).toFixed(4) + ')">' + a + "</span>";
+    }).join("");
     camadaPol = L.geoJSON(geo, {
       style: estiloPol,
       onEachFeature: function (f, l) {
@@ -274,13 +372,14 @@
   el("dobra").addEventListener("click", function () {
     dobrarPainel(this.getAttribute("aria-expanded") === "true");
   });
-  window.addEventListener("resize", function () { if (grafico) grafico.resize(); });
+  window.addEventListener("resize", function () { if (grafico) grafico.resize(); if (graficoAgb) graficoAgb.resize(); });
 
   // gancho para os testes no navegador
   window.araticum = {
     pronto: pronto, abrir: abrir, definirAno: definirAno, mapa: mapa,
     camadas: function () { return { poligonos: camadaPol, pontos: camadaPts }; },
     estado: function () { return { gid: atual ? atual.gid : null, ano: anoAtual }; },
-    grafico: function () { return grafico; }
+    grafico: function () { return grafico; },
+    graficoAgb: function () { return graficoAgb; }
   };
 })();

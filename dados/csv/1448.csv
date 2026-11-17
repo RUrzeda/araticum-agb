@@ -1,26 +1,26 @@
-gid,ano,ano_inicio,ndvi_landsat,sensor_landsat,ndvi_s2,imagem,marca_imagem,n_cenas_imagem,no_dominio_do_modelo,situacao_agb,agb_nivel_periodo_t_ha,agb_p10_t_ha,agb_p90_t_ha
-1448,2000,2019,0.396,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2001,2019,0.4269,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2002,2019,0.4358,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2003,2019,0.4627,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2004,2019,0.4143,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2005,2019,0.4559,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2006,2019,0.4447,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2007,2019,0.4104,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2008,2019,0.4211,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2009,2019,0.4936,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2010,2019,0.3236,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2011,2019,0.3718,TM,,,,,,nível do período,43.65,15.77,76.81
-1448,2012,2019,0.3524,ETM,,,,,,nível do período,43.65,15.77,76.81
-1448,2013,2019,0.4785,ETM,,,,,,nível do período,43.65,15.77,76.81
-1448,2014,2019,0.4641,ETM,,,,,,nível do período,43.65,15.77,76.81
-1448,2015,2019,0.4717,ETM,,,,,,nível do período,43.65,15.77,76.81
-1448,2016,2019,0.3284,ETM,,,,,,nível do período,43.65,15.77,76.81
-1448,2017,2019,0.3485,ETM,0.3912,dados/imagens/1448/2017.webp,ok,6,sim,nível do período,43.65,15.77,76.81
-1448,2018,2019,0.4811,ETM,0.5673,dados/imagens/1448/2018.webp,ok,2,sim,nível do período,43.65,15.77,76.81
-1448,2019,2019,0.4252,ETM,0.4469,dados/imagens/1448/2019.webp,ok,13,sim,nível do período,43.65,15.77,76.81
-1448,2020,2019,0.5246,ETM,0.4428,dados/imagens/1448/2020.webp,ok,14,sim,nível do período,43.65,15.77,76.81
-1448,2021,2019,0.4107,ETM,0.367,dados/imagens/1448/2021.webp,ok,15,sim,nível do período,43.65,15.77,76.81
-1448,2022,2019,0.4724,ETM,0.4173,dados/imagens/1448/2022.webp,ok,16,sim,nível do período,43.65,15.77,76.81
-1448,2023,2019,0.4041,ETM,0.3367,dados/imagens/1448/2023.webp,ok,15,sim,nível do período,43.65,15.77,76.81
-1448,2024,2019,,,0.3454,dados/imagens/1448/2024.webp,ok,15,sim,nível do período,43.65,15.77,76.81
+gid,ano,ano_inicio,ndvi_landsat,sensor_landsat,ndvi_s2,imagem,sensor_imagem,pixel_imagem_m,marca_imagem,n_cenas_imagem,no_dominio_do_modelo,situacao_agb,agb_nivel_periodo_t_ha,agb_p10_t_ha,agb_p90_t_ha,agb_ano_t_ha,agb_ano_p10_t_ha,agb_ano_p90_t_ha
+1448,2000,2019,0.396,TM,,dados/imagens/1448/2000.webp,Landsat 5 TM,30,ok,4,,nível do período,43.65,15.77,76.81,,,
+1448,2001,2019,0.4269,TM,,dados/imagens/1448/2001.webp,Landsat 5 TM,30,ok,4,,nível do período,43.65,15.77,76.81,,,
+1448,2002,2019,0.4358,TM,,dados/imagens/1448/2002.webp,Landsat 5 TM,30,ok,2,,nível do período,43.65,15.77,76.81,,,
+1448,2003,2019,0.4627,TM,,dados/imagens/1448/2003.webp,Landsat 5 TM,30,ok,4,,nível do período,43.65,15.77,76.81,,,
+1448,2004,2019,0.4143,TM,,dados/imagens/1448/2004.webp,Landsat 5 TM,30,ok,3,,nível do período,43.65,15.77,76.81,,,
+1448,2005,2019,0.4559,TM,,dados/imagens/1448/2005.webp,Landsat 5 TM,30,ok,4,,nível do período,43.65,15.77,76.81,,,
+1448,2006,2019,0.4447,TM,,dados/imagens/1448/2006.webp,Landsat 5 TM,30,ok,6,,nível do período,43.65,15.77,76.81,,,
+1448,2007,2019,0.4104,TM,,dados/imagens/1448/2007.webp,Landsat 5 TM,30,ok,6,,nível do período,43.65,15.77,76.81,,,
+1448,2008,2019,0.4211,TM,,dados/imagens/1448/2008.webp,Landsat 5 TM,30,ok,6,,nível do período,43.65,15.77,76.81,,,
+1448,2009,2019,0.4936,TM,,dados/imagens/1448/2009.webp,Landsat 5 TM,30,ok,5,,nível do período,43.65,15.77,76.81,,,
+1448,2010,2019,0.3236,TM,,dados/imagens/1448/2010.webp,Landsat 5 TM,30,ok,2,,nível do período,43.65,15.77,76.81,,,
+1448,2011,2019,0.3718,TM,,dados/imagens/1448/2011.webp,Landsat 5 TM,30,ok,2,,nível do período,43.65,15.77,76.81,,,
+1448,2012,2019,0.3524,ETM,,dados/imagens/1448/2012.webp,Landsat 7 ETM+,30,ok,5,,nível do período,43.65,15.77,76.81,,,
+1448,2013,2019,0.4785,ETM,,dados/imagens/1448/2013.webp,Landsat 7 ETM+,30,ok,5,,nível do período,43.65,15.77,76.81,,,
+1448,2014,2019,0.4641,ETM,,dados/imagens/1448/2014.webp,Landsat 7 ETM+,30,ok,5,,nível do período,43.65,15.77,76.81,,,
+1448,2015,2019,0.4717,ETM,,dados/imagens/1448/2015.webp,Landsat 7 ETM+,30,ok,6,,nível do período,43.65,15.77,76.81,,,
+1448,2016,2019,0.3284,ETM,,dados/imagens/1448/2016.webp,Landsat 7 ETM+,30,ok,6,,nível do período,43.65,15.77,76.81,,,
+1448,2017,2019,0.3485,ETM,0.3912,dados/imagens/1448/2017.webp,Sentinel-2,10,ok,6,sim,nível do período,43.65,15.77,76.81,49.27,15.77,156.07
+1448,2018,2019,0.4811,ETM,0.5673,dados/imagens/1448/2018.webp,Sentinel-2,10,ok,2,sim,nível do período,43.65,15.77,76.81,43.38,15.77,66.4
+1448,2019,2019,0.4252,ETM,0.4469,dados/imagens/1448/2019.webp,Sentinel-2,10,ok,13,sim,nível do período,43.65,15.77,76.81,43.92,15.77,66.22
+1448,2020,2019,0.5246,ETM,0.4428,dados/imagens/1448/2020.webp,Sentinel-2,10,ok,14,sim,nível do período,43.65,15.77,76.81,46.34,15.77,105.6
+1448,2021,2019,0.4107,ETM,0.367,dados/imagens/1448/2021.webp,Sentinel-2,10,ok,15,sim,nível do período,43.65,15.77,76.81,42.53,16.48,65.42
+1448,2022,2019,0.4724,ETM,0.4173,dados/imagens/1448/2022.webp,Sentinel-2,10,ok,16,sim,nível do período,43.65,15.77,76.81,42.94,16.56,85.3
+1448,2023,2019,0.4041,ETM,0.3367,dados/imagens/1448/2023.webp,Sentinel-2,10,ok,15,sim,nível do período,43.65,15.77,76.81,47.27,15.77,156.07
+1448,2024,2019,,,0.3454,dados/imagens/1448/2024.webp,Sentinel-2,10,ok,15,sim,nível do período,43.65,15.77,76.81,42.87,18.68,68.31

@@ -45,7 +45,49 @@
   "p90_t_ha": 48.04,
   "classe": 0,
   "n_anos_gedi_imputado": 3,
-  "nivel_gedi_proprio_t_ha": 22.58
+  "nivel_gedi_proprio_t_ha": 22.58,
+  "serie": {
+   "anos": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+   ],
+   "agb": [
+    21.28,
+    20.44,
+    21.2,
+    22.58,
+    23.21,
+    null,
+    23.75,
+    23.95
+   ],
+   "p10": [
+    1.26,
+    1.26,
+    1.4,
+    3.84,
+    6.15,
+    null,
+    6.48,
+    6.37
+   ],
+   "p90": [
+    48.04,
+    48.04,
+    48.04,
+    48.04,
+    48.04,
+    null,
+    48.04,
+    48.04
+   ]
+  }
  },
  "ndvi": {
   "anos": [
@@ -159,9 +201,181 @@
  },
  "imagens": [
   {
+   "ano": 2000,
+   "arquivo": "dados/imagens/1400/2000.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2001,
+   "arquivo": "dados/imagens/1400/2001.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2002,
+   "arquivo": "dados/imagens/1400/2002.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 2,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2003,
+   "arquivo": "dados/imagens/1400/2003.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2004,
+   "arquivo": "dados/imagens/1400/2004.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 3,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2005,
+   "arquivo": "dados/imagens/1400/2005.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2006,
+   "arquivo": "dados/imagens/1400/2006.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2007,
+   "arquivo": "dados/imagens/1400/2007.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2008,
+   "arquivo": "dados/imagens/1400/2008.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2009,
+   "arquivo": "dados/imagens/1400/2009.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2010,
+   "arquivo": "dados/imagens/1400/2010.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 2,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2011,
+   "arquivo": "dados/imagens/1400/2011.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 2,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2012,
+   "arquivo": "dados/imagens/1400/2012.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2013,
+   "arquivo": "dados/imagens/1400/2013.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2014,
+   "arquivo": "dados/imagens/1400/2014.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2015,
+   "arquivo": "dados/imagens/1400/2015.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2016,
+   "arquivo": "dados/imagens/1400/2016.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
    "ano": 2017,
    "arquivo": "dados/imagens/1400/2017.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 6,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -170,6 +384,8 @@
    "ano": 2018,
    "arquivo": "dados/imagens/1400/2018.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 1,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.135
@@ -178,6 +394,8 @@
    "ano": 2019,
    "arquivo": "dados/imagens/1400/2019.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 16,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -186,6 +404,8 @@
    "ano": 2020,
    "arquivo": "dados/imagens/1400/2020.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 14,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -194,6 +414,8 @@
    "ano": 2021,
    "arquivo": "dados/imagens/1400/2021.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 15,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -202,6 +424,8 @@
    "ano": 2022,
    "arquivo": "dados/imagens/1400/2022.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 16,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -210,6 +434,8 @@
    "ano": 2023,
    "arquivo": "dados/imagens/1400/2023.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 16,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -218,6 +444,8 @@
    "ano": 2024,
    "arquivo": "dados/imagens/1400/2024.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 15,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -229,7 +457,7 @@
   "52 % do círculo de 60 m usado pelo modelo fica fora do polígono.",
   "Em 3 dos 7 anos do nível, faltou GEDI no ponto e o modelo usou a mediana do Cerrado. Com o GEDI do próprio polígono, o nível seria de 22,6 t/ha.",
   "Este nível fica na faixa que o modelo deu a pastagem estável (25,5 t/ha) e a vegetação secundária jovem (30,3 t/ha) nos pontos de controle. Nessa faixa, o modelo não separa uma coisa da outra.",
-  "Na imagem de 2018, 13 % da área fica em cinza, sem observação livre de nuvem na janela, fora do polígono e do círculo."
+  "Na imagem de 2018, 13 % da área fica em cinza, sem observação válida na janela, fora do polígono e do círculo."
  ],
  "csv": "dados/csv/1400.csv"
 }

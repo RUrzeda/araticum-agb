@@ -37,7 +37,8 @@
   "p90_t_ha": null,
   "classe": null,
   "n_anos_gedi_imputado": null,
-  "nivel_gedi_proprio_t_ha": null
+  "nivel_gedi_proprio_t_ha": null,
+  "serie": null
  },
  "ndvi": {
   "anos": [
@@ -151,9 +152,181 @@
  },
  "imagens": [
   {
+   "ano": 2000,
+   "arquivo": "dados/imagens/1412/2000.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2001,
+   "arquivo": "dados/imagens/1412/2001.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2002,
+   "arquivo": "dados/imagens/1412/2002.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 3,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2003,
+   "arquivo": "dados/imagens/1412/2003.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2004,
+   "arquivo": "dados/imagens/1412/2004.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 4,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2005,
+   "arquivo": "dados/imagens/1412/2005.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2006,
+   "arquivo": "dados/imagens/1412/2006.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2007,
+   "arquivo": "dados/imagens/1412/2007.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2008,
+   "arquivo": "dados/imagens/1412/2008.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2009,
+   "arquivo": "dados/imagens/1412/2009.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2010,
+   "arquivo": "dados/imagens/1412/2010.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 3,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2011,
+   "arquivo": "dados/imagens/1412/2011.webp",
+   "marca": "ok",
+   "sensor": "Landsat 5 TM",
+   "pixel_m": 30,
+   "n_cenas": 3,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2012,
+   "arquivo": "dados/imagens/1412/2012.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2013,
+   "arquivo": "dados/imagens/1412/2013.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2014,
+   "arquivo": "dados/imagens/1412/2014.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2015,
+   "arquivo": "dados/imagens/1412/2015.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 5,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
+   "ano": 2016,
+   "arquivo": "dados/imagens/1412/2016.webp",
+   "marca": "ok",
+   "sensor": "Landsat 7 ETM+",
+   "pixel_m": 30,
+   "n_cenas": 6,
+   "lado_m": 640,
+   "fracao_sem_dado_extensao": 0.0
+  },
+  {
    "ano": 2017,
    "arquivo": "dados/imagens/1412/2017.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 7,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -162,6 +335,8 @@
    "ano": 2018,
    "arquivo": "dados/imagens/1412/2018.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 1,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -170,6 +345,8 @@
    "ano": 2019,
    "arquivo": "dados/imagens/1412/2019.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 17,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -178,6 +355,8 @@
    "ano": 2020,
    "arquivo": "dados/imagens/1412/2020.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 13,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -186,6 +365,8 @@
    "ano": 2021,
    "arquivo": "dados/imagens/1412/2021.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 14,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -194,6 +375,8 @@
    "ano": 2022,
    "arquivo": "dados/imagens/1412/2022.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 15,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -202,6 +385,8 @@
    "ano": 2023,
    "arquivo": "dados/imagens/1412/2023.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 15,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0
@@ -210,6 +395,8 @@
    "ano": 2024,
    "arquivo": "dados/imagens/1412/2024.webp",
    "marca": "ok",
+   "sensor": "Sentinel-2",
+   "pixel_m": 10,
    "n_cenas": 16,
    "lado_m": 640,
    "fracao_sem_dado_extensao": 0.0

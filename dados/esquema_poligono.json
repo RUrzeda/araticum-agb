@@ -1,7 +1,7 @@
 {
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "title": "Painel de um polígono da plataforma Araticum",
- "description": "Gerado por scripts/11_web.py. A AGB aparece só como nível do período (D20), e só quando ele é mostrado.",
+ "description": "Gerado por scripts/11_web.py. A AGB aparece como nível do período (D20) e como valor de cada ano dentro do domínio do modelo (D22), só quando o nível é mostrado; sem tendência.",
  "type": "object",
  "additionalProperties": false,
  "required": ["versao", "gid", "projeto", "suporte", "agb", "ndvi", "imagens", "ressalvas", "csv"],
@@ -33,7 +33,7 @@
   "agb": {
    "type": "object", "additionalProperties": false,
    "required": ["situacao", "mostra_nivel", "n_anos_preditos", "n_anos_dominio", "anos_dominio", "anos_sem_predicao",
-                "nivel_t_ha", "p10_t_ha", "p90_t_ha", "classe", "n_anos_gedi_imputado", "nivel_gedi_proprio_t_ha"],
+                "nivel_t_ha", "p10_t_ha", "p90_t_ha", "classe", "n_anos_gedi_imputado", "nivel_gedi_proprio_t_ha", "serie"],
    "properties": {
     "situacao": {"enum": ["nível do período", "poucos anos no domínio do modelo", "fora do domínio do modelo"]},
     "mostra_nivel": {"type": "boolean"},
@@ -46,14 +46,23 @@
     "p90_t_ha": {"type": ["number", "null"], "minimum": 0},
     "classe": {"type": ["integer", "null"], "minimum": 0, "maximum": 3},
     "n_anos_gedi_imputado": {"type": ["integer", "null"], "minimum": 0},
-    "nivel_gedi_proprio_t_ha": {"type": ["number", "null"], "minimum": 0}
+    "nivel_gedi_proprio_t_ha": {"type": ["number", "null"], "minimum": 0},
+    "serie": {
+     "type": ["object", "null"], "additionalProperties": false, "required": ["anos", "agb", "p10", "p90"],
+     "properties": {
+      "anos": {"type": "array", "minItems": 8, "maxItems": 8, "items": {"type": "integer", "minimum": 2017, "maximum": 2024}},
+      "agb": {"type": "array", "minItems": 8, "maxItems": 8, "items": {"type": ["number", "null"], "minimum": 0}},
+      "p10": {"type": "array", "minItems": 8, "maxItems": 8, "items": {"type": ["number", "null"], "minimum": 0}},
+      "p90": {"type": "array", "minItems": 8, "maxItems": 8, "items": {"type": ["number", "null"], "minimum": 0}}
+     }
+    }
    },
    "if": {"properties": {"mostra_nivel": {"const": true}}},
    "then": {"properties": {"situacao": {"const": "nível do período"}, "nivel_t_ha": {"type": "number"},
                            "p10_t_ha": {"type": "number"}, "p90_t_ha": {"type": "number"},
-                           "classe": {"type": "integer"}, "n_anos_dominio": {"minimum": 3}}},
+                           "classe": {"type": "integer"}, "n_anos_dominio": {"minimum": 3}, "serie": {"type": "object"}}},
    "else": {"properties": {"nivel_t_ha": {"type": "null"}, "p10_t_ha": {"type": "null"}, "p90_t_ha": {"type": "null"},
-                           "classe": {"type": "null"}, "nivel_gedi_proprio_t_ha": {"type": "null"}}}
+                           "classe": {"type": "null"}, "nivel_gedi_proprio_t_ha": {"type": "null"}, "serie": {"type": "null"}}}
   },
   "ndvi": {
    "type": "object", "additionalProperties": false, "required": ["anos", "landsat", "sensor_landsat", "s2"],
@@ -65,12 +74,14 @@
    }
   },
   "imagens": {
-   "type": "array", "minItems": 8, "maxItems": 8,
+   "type": "array", "minItems": 25, "maxItems": 25,
    "items": {
     "type": "object", "additionalProperties": false,
-    "required": ["ano", "arquivo", "marca", "n_cenas", "lado_m", "fracao_sem_dado_extensao"],
+    "required": ["ano", "arquivo", "marca", "sensor", "pixel_m", "n_cenas", "lado_m", "fracao_sem_dado_extensao"],
     "properties": {
-     "ano": {"type": "integer", "minimum": 2017, "maximum": 2024},
+     "ano": {"type": "integer", "minimum": 2000, "maximum": 2024},
+     "sensor": {"enum": ["Landsat 5 TM", "Landsat 7 ETM+", "Sentinel-2"]},
+     "pixel_m": {"enum": [10, 30]},
      "arquivo": {"type": "string", "pattern": "^dados/imagens/[0-9]+/20[0-9]{2}\\.webp$"},
      "marca": {"enum": ["ok", "nuvem", "sem dado"]},
      "n_cenas": {"type": "integer", "minimum": 1},
